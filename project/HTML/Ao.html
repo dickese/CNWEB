@@ -5,18 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=h1, initial-scale=1.0">
     <title>Scam Shop | Áo</title>
-    <link rel="stylesheet" href="/CSS/bootstrap.css">
-    <script src="/JS/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../CSS/header footer.css">
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <script src="../../js/jquery.js"></script>
+    <script src="../JS/data.js"></script>
     <script src="/JS/bootstrap.js"></script>
-    <link rel="stylesheet" href="/CSS/header footer.css">
-    <!-- link icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- icon web -->
-    <link rel="icon" href="/IMG/favicon.png">
-</head>
+          <style>
+            .image-container {
+                position: relative;
+                overflow: hidden;
+            }
 
+            .image-container img {
+                width: 100%;
+                transition: 0.3s ease-in-out;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .view-details {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                color: #000;
+                padding: 8px 16px;
+                font-size: 14px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .image-container:hover .overlay,
+            .image-container:hover .view-details {
+                opacity: 1;
+            }
+          </style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
@@ -97,7 +136,7 @@
         </div>
     </nav>
     <div class="container">
-        <h1>Áo</h1>
+      <div class="row" id="products-container"></div>
     </div>
     <footer class="bg-dark text-white">
         <div class="container">
@@ -163,6 +202,96 @@
             </div>
         </div>
     </footer>
+     <script>
+      function renderProducts(productArray) {
+        const productsContainer = $("#products-container");
+        productsContainer.empty();
+
+        $.each(productArray, function (index, product) {
+          const productCard = `
+                    <div class="col-md-4 mb-4">
+                      <div class="card product-card">
+                          <div class="image-container">
+                              <img src="${product.images[0]}" class="card-img-top" alt="${product.name}">
+                              <div class="overlay"></div>
+                              <a href="./ChiTietSanPham.html?id="${product.id}" class="btn btn-primary view-details" data-id="${product.id}">Xem chi tiết</a>
+                          </div>
+                          <div class="card-body">
+                              <h5 class="card-title">${product.name}</h5>
+                              <p class="price">${product.price.toLocaleString("vi-VN")} đ</p>
+                          </div>
+                      </div>
+                    </div>`;
+          productsContainer.append(productCard);
+        });
+      }
+      $("#category-filter").on("change", function () {
+        const selectedCategory = $(this).val();
+
+        if (selectedCategory === "all") {
+          renderProducts(products);
+        } else {
+          const filteredProducts = products.filter(
+            (p) => p.category === selectedCategory
+          );
+          renderProducts(filteredProducts);
+        }
+      });
+
+      $("#sort-filter").on("change", function () {
+        const sortMethod = $(this).val();
+        let sortedProducts = [...products];
+
+        switch (sortMethod) {
+          case "price-asc":
+            sortedProducts.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            sortedProducts.sort((a, b) => b.price - a.price);
+            break;
+          case "name-asc":
+            sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case "name-desc":
+            sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        }
+
+        renderProducts(sortedProducts);
+      });
+
+      $("#search-form").on("submit", function (e) {
+        e.preventDefault();
+        const searchTerm = $("#search-input").val().toLowerCase();
+
+        if (searchTerm.trim() === "") {
+          renderProducts(products);
+          return;
+        }
+
+        const searchResults = products.filter(
+          (p) =>
+            p.name.toLowerCase().includes(searchTerm) ||
+            p.description.toLowerCase().includes(searchTerm)
+        );
+
+        renderProducts(searchResults);
+      });
+
+      $(document).ready(function () {
+        renderProducts(products);
+
+        $(document).on("click", ".add-to-cart", function () {
+          const productId = $(this).data("id");
+          alert(`Đã thêm sản phẩm (ID: ${productId}) vào giỏ hàng!`);
+        });
+        $(document).on("click", ".view-detail", function (event) {
+          event.preventDefault();
+          let productId = $(this).data("id");
+          window.location.href = `./ChiTietSanPham.html?id="${productId}"`;
+        });
+      });
+    </script>
 </body>
 
 </html>
