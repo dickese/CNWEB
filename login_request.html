@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="m-0">Thời Trang</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Liên Hệ</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#authModal">Đăng Nhập</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!---->
+    <div id="alertContainer" class="container mt-3"></div>
+    
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs mb-3" id="authTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login">Đăng Nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register">Đăng Ký</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Đăng Nhập -->
+                        <div class="tab-pane fade show active" id="login">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="loginPassword" placeholder="Mật khẩu">
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+                            </form>
+                        </div>
+    
+                        <!--Đăng Ký -->
+                        <div class="tab-pane fade" id="register">
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="registerName" placeholder="Họ tên">
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-6">
+                                        <input type="tel" class="form-control" id="registerPhone" placeholder="Số điện thoại">
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select" id="registerGender">
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-6">
+                                        <input type="password" class="form-control" id="registerPassword" placeholder="Mật khẩu">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="registerAddress" placeholder="Địa chỉ">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" id="registerDate">
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreeTerms">
+                                    <label class="form-check-label" for="agreeTerms">Tôi đồng ý với <a href="#" class="text-black">chính sách</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Đăng Ký</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+        <p>&copy; 2025 Thời Trang. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        $(document).ready(function () {
+            function showAlert(message, type = 'danger') {
+                let alertHtml = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                                    ${message}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>`;
+                $('#alertContainer').html(alertHtml);
+            }
+    
+            function validateInput(input) {
+                if (input.val().trim() === '') {
+                    input.addClass('border-warning');
+                    return false;
+                } else {
+                    input.removeClass('border-warning');
+                    return true;
+                }
+            }
+    
+            $('#loginForm').submit(function (event) {
+                event.preventDefault();
+                let email = $('#loginEmail');
+                let password = $('#loginPassword');
+    
+                let isValid = validateInput(email) & validateInput(password);
+                if (!isValid) {
+                    showAlert('Vui lòng điền đầy đủ thông tin đăng nhập!', 'warning');
+                    return;
+                }
+    
+                showAlert('Đăng nhập thành công!', 'success');
+                $('#authModal').modal('hide');
+            });
+    
+            $('#registerForm').submit(function (event) {
+                event.preventDefault();
+                let name = $('#registerName');
+                let phone = $('#registerPhone');
+                let email = $('#registerEmail');
+                let password = $('#registerPassword');
+                let confirmPassword = $('#confirmPassword');
+                let address = $('#registerAddress');
+                let date = $('#registerDate');
+                let agree = $('#agreeTerms');
+    
+                let isValid = validateInput(name) & validateInput(phone) & validateInput(email) & 
+                              validateInput(password) & validateInput(confirmPassword) & validateInput(address) & validateInput(date);
+    
+                if (!isValid || !agree.is(':checked')) {
+                    showAlert('Vui lòng điền đầy đủ thông tin và chấp nhận điều khoản!', 'warning');
+                    return;
+                }
+    
+                if (password.val() !== confirmPassword.val()) {
+                    password.add(confirmPassword).addClass('border-danger');
+                    showAlert('Mật khẩu và Nhập lại mật khẩu không khớp!', 'danger');
+                    return;
+                } else {
+                    password.add(confirmPassword).removeClass('border-danger');
+                }
+    
+                showAlert('Đăng ký thành công!', 'success');
+                $('#authModal').modal('hide');
+            });
+    
+            $('#registerForm input, #loginForm input').on('input', function () {
+                $(this).removeClass('border-warning border-danger');
+            });
+        });
+    </script>
+    
+</body>
+</html>
