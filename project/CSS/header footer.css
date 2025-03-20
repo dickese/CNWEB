@@ -1,8 +1,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+#scamshop{
+    margin-right: 50px;
+}
 .navbar-brand {
-    font-weight: bold;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
     color: #007bff !important;
 }
 .nav-item{
