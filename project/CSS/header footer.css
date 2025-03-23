@@ -28,6 +28,7 @@ body {
 }
 #aboutus a{
     margin-right: 15px;
+    text-decoration: none;
 }
 footer h4{
     margin-top: 10px;

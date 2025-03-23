@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
             <div id="scamshop">
                 <a class="navbar-brand" href="Trangchu.html">Scam Shop</a>
@@ -33,45 +33,44 @@
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="Ao.html">Áo</a>
-                            <span class="nav-link dropdown-toggle pl-0 pr-0" data-bs-toggle="dropdown">
+                            <a class="nav-link" href="SanPham.html?category=ao" data-category="ao">Áo</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent"  data-category="ao" data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Áo thun</a></li>
-                            <li><a class="dropdown-item" href="#">Áo sơ mi</a></li>
-                            <li><a class="dropdown-item" href="#">Áo khoác</a></li>
-                            <li><a class="dropdown-item" href="#">Áo len</a></li>
-                            <li><a class="dropdown-item" href="#">Áo nỉ</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-thun" data-subcategory="ao-thun">Áo thun</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-so-mi" data-subcategory="ao-so-mi">Áo sơ mi</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-khoac" data-subcategory="ao-khoac">Áo khoác</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-len" data-subcategory="ao-len">Áo len</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-ni" data-subcategory="ao-ni">Áo nỉ</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="Quan.html">Quần</a>
-                            <span class="nav-link dropdown-toggle pl-0 pr-0" data-bs-toggle="dropdown">
-
+                            <a class="nav-link" href="SanPham.html">Quần</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent"  data-category="quan" data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Quần jean</a></li>
-                            <li><a class="dropdown-item" href="#">Quần kaki</a></li>
-                            <li><a class="dropdown-item" href="#">Quần short</a></li>
-                            <li><a class="dropdown-item" href="#">Quần âu</a></li>
-                            <li><a class="dropdown-item" href="#">Quần dài</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-jean" data-subcategory="quan-jean">Quần jean</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-kaki" data-subcategory="quan-kaki">Quần kaki</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-short" data-subcategory="quan-short">Quần short</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-au" data-subcategory="quan-au">Quần âu</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-dai" data-subcategory="quan-dai">Quần dài</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="Phukien.html">Phụ Kiện</a>
-                            <span class="nav-link dropdown-toggle pl-0 pr-0" data-bs-toggle="dropdown">
+                            <a class="nav-link" href="SanPham.html"  data-category="phu-kien">Phụ Kiện</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mũ</a></li>
-                            <li><a class="dropdown-item" href="#">Túi xách</a></li>
-                            <li><a class="dropdown-item" href="#">Giày</a></li>
-                            <li><a class="dropdown-item" href="#">Dây nịt</a></li>
-                            <li><a class="dropdown-item" href="#">Ví</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=mu" data-subcategory="mu">Mũ</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=tui-xach" data-subcategory="tui-xach">Túi xách</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=giay" data-subcategory="giay">Giày</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=day-nit" data-subcategory="day-nit">Dây nịt</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=vi" data-subcategory="vi">Ví</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -95,7 +94,6 @@
                 </form>
             </div>
         </div>
-      </div>
     </nav>
     <div class="container">
       <h1>Trang chủ</h1>
@@ -174,6 +172,7 @@
             </div>
         </div>
       </div>
+      <script src="../JS/render.js"></script>
     </footer>
   </body>
 </html>

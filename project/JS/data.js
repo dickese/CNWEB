@@ -18,14 +18,14 @@ const products = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["Trắng"],
     material: "Cotton cao cấp",
-    category: "Áo Sơ Mi",
+    category: "ao",
     images: [
-      "../../img/ao/aoTrang/a1.webp"
+      "../IMG/ao/aoTrang/a1.webp"
     ],
     stock: 25,
     rating: 4.8,
     reviews: 152,
-    brand: "OWEN",
+    type: "ao-thun"
   },
   {
     id: "AR250120BL",
@@ -35,14 +35,201 @@ const products = [
     sizes: ["M", "L", "XL"],
     colors: ["Xanh Biển"],
     material: "Linen pha Cotton",
-    category: "Áo Sơ Mi",
+     category: "quan",
     images: [
-      "../../img/ao/aoTrang/a2.webp"
+      "../IMG/quan/dsc08155-2.webp"
     ],
     stock: 18,
     rating: 4.7,
     reviews: 98,
-    brand: "OWEN",
+    type: "quan-jean"
+  },
+      {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "ao",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "ao-khoac"
+  },
+      {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "ao",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "ao-so-mi"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "quan",
+    images: [
+      "../IMG/quan/qjr241251._1.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "quan-short"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "quan",
+    images: [
+      "../IMG/quan/qjr241252._1-2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "quan-au"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "3"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "2"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "4"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "1"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "2"
+  },
+        {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+     category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "3"
+  },
+      {
+    id: "AR250120BL",
+    name: "Áo Sơ Mi Nam Xanh Biển",
+    price: 629000,
+    description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
+    sizes: ["M", "L", "XL"],
+    colors: ["Xanh Biển"],
+    material: "Linen pha Cotton",
+    category: "A",
+    images: [
+      "../IMG/ao/aoTrang/a2.webp"
+    ],
+    stock: 18,
+    rating: 4.7,
+    reviews: 98,
+    type: "4"
     },
   {
     id: "AR250122GR",
@@ -52,14 +239,14 @@ const products = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["Xám"],
     material: "Cotton lạnh",
-    category: "Áo Sơ Mi",
+     category: "quan",
     images: [
-      "../../img/ao/aoTrang/a5.avif"
+      "../IMG/ao/aoTrang/ar250118nt._2.webp"
     ],
     stock: 30,
     rating: 4.6,
     reviews: 85,
-    brand: "OWEN",
+    type: "quan-dai"
   },
   {
     id: "AR250125BK",
@@ -69,7 +256,7 @@ const products = [
     sizes: ["M", "L", "XL"],
     colors: ["Đen"],
     material: "Cotton lụa",
-    category: "Áo Sơ Mi",
+     category: "A",
     images: [
       "https://owen.vn/media/catalog/product/a/r/ar250125bk-1.jpg",
       "https://owen.vn/media/catalog/product/a/r/ar250125bk-2.jpg",
@@ -77,7 +264,7 @@ const products = [
     stock: 20,
     rating: 4.9,
     reviews: 210,
-    brand: "OWEN",
+    type: "2"
   },
   {
     id: "AR250130RD",
@@ -87,7 +274,7 @@ const products = [
     sizes: ["S", "M", "L"],
     colors: ["Đỏ Đô"],
     material: "Linen Cotton",
-    category: "Áo Sơ Mi",
+     category: "A",
     images: [
       "https://owen.vn/media/catalog/product/a/r/ar250130rd-1.jpg",
       "https://owen.vn/media/catalog/product/a/r/ar250130rd-2.jpg",
@@ -95,7 +282,7 @@ const products = [
     stock: 15,
     rating: 4.5,
     reviews: 73,
-    brand: "OWEN",
+    type: "3"
   },
   {
     id: "AR250135NV",
@@ -105,7 +292,7 @@ const products = [
     sizes: ["M", "L", "XL"],
     colors: ["Xanh Navy"],
     material: "Oxford Cotton",
-    category: "Áo Sơ Mi",
+     category: "Q",
     images: [
       "https://owen.vn/media/catalog/product/a/r/ar250135nv-1.jpg",
       "https://owen.vn/media/catalog/product/a/r/ar250135nv-2.jpg",
@@ -113,7 +300,7 @@ const products = [
     stock: 22,
     rating: 4.8,
     reviews: 135,
-    brand: "OWEN",
+    type: "4"
   },
   {
     id: "AR250140GR",
@@ -123,7 +310,7 @@ const products = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["Xám Sọc"],
     material: "Cotton Pha Spandex",
-    category: "Áo Sơ Mi",
+    category: "Q",
     images: [
       "https://owen.vn/media/catalog/product/a/r/ar250140gr-1.jpg",
       "https://owen.vn/media/catalog/product/a/r/ar250140gr-2.jpg",
@@ -131,7 +318,7 @@ const products = [
     stock: 28,
     rating: 4.7,
     reviews: 120,
-    brand: "OWEN",
+    type: "1"
   }
 ];
 
