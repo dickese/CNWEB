@@ -40,9 +40,7 @@ h5 {
     color: gray;
     opacity: 1;
 }
-.titleborder{
-    border-top: 2px dashed black;
-}
+
 .btn-warning:hover {
     background-color: #e6b800;
     color: white;
