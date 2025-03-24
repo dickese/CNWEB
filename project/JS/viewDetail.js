@@ -10,12 +10,27 @@ function renderProductDetail(product) {
 
         const sizeContainer = $("#size-options");
         sizeContainer.empty();
-        product.sizes.forEach(size => {
+        /*product.sizes.forEach(size => {
             sizeContainer.append(`<button class="btn border border-infor" style="margin-right: 5px">${size}</button>`);
+        });*/
+        product.sizes.forEach(size => {
+            sizeContainer.append(
+                `<button class="btn border border-infor size-button" style="margin-right: 5px" data-size="${size}">
+                    ${size}
+                 </button>`
+            );
         });
     }
     renderRelatedProducts(product);
 }
+let selectedSize = ""; // Lưu trữ size được chọn
+
+// Xử lý sự kiện khi người dùng chọn size
+$(document).on("click", ".size-button", function () {
+    $(".size-button").removeClass("selected"); // Bỏ chọn size cũ
+    $(this).addClass("selected"); // Đánh dấu size mới được chọn
+    selectedSize = $(this).data("size"); // Lấy giá trị size
+});
 
 function renderRelatedProducts(product) {
     const relatedProductsContainer = $("#related-products");
