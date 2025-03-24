@@ -109,22 +109,57 @@ function loadBanner(category) {
     $(".banner-desciption").text(banner.description)
 }
 
-function loadCategoryList(category) {
+// function loadCategoryList(category) {
+//     const categoryTitle = document.getElementById("category-title");
+//     const categoryListContainer = document.getElementById("category-list");
+
+//     categoryListContainer.innerHTML = "";
+
+//     if (categoryList[category]) {
+//         categoryTitle.textContent = `${category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện"}`;
+//         categoryList[category].forEach(subcategory => {
+//             const listItem = document.createElement("li");
+//             listItem.innerHTML = `<a href="SanPham.html?category=${category}&type=${subcategory.type}">${subcategory.name}</a>`;
+//             categoryListContainer.appendChild(listItem);
+//         });
+//     }
+// }
+function loadCategoryList(selectedCategory) {
     const categoryTitle = document.getElementById("category-title");
     const categoryListContainer = document.getElementById("category-list");
 
+    categoryTitle.textContent = "Danh mục sản phẩm";
     categoryListContainer.innerHTML = "";
 
-    if (categoryList[category]) {
-        categoryTitle.textContent = `${category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện"}`;
+    Object.keys(categoryList).forEach(category => {
+        const categoryBlock = document.createElement("div");
+        categoryBlock.classList.add("category-block");
+        categoryBlock.setAttribute("data-category", category); // Thêm data-category
+
+        if (category === selectedCategory) {
+            categoryBlock.classList.add("active");
+        }
+
+        const categoryName = category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện";
+        const categoryLink = document.createElement("a");
+        categoryLink.classList.add("category-link");
+        categoryLink.href = `SanPham.html?category=${category}`;
+        categoryLink.textContent = categoryName;
+        categoryBlock.appendChild(categoryLink);
+
+        const subCategoryList = document.createElement("ul");
         categoryList[category].forEach(subcategory => {
             const listItem = document.createElement("li");
             listItem.innerHTML = `<a href="SanPham.html?category=${category}&type=${subcategory.type}">${subcategory.name}</a>`;
-            categoryListContainer.appendChild(listItem);
+            subCategoryList.appendChild(listItem);
         });
-    }
+
+        categoryBlock.appendChild(subCategoryList);
+        categoryListContainer.appendChild(categoryBlock);
+    });
 }
 
+////////////////////////////////////////
 $(document).ready(function () {
     onChange();
     $(document).on("click", ".dropdown-item", function (event) {
