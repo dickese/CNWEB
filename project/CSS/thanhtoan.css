@@ -48,3 +48,6 @@ h5 {
 .ffff{
     margin-left: 5%;
 }
+#note {
+    resize: none;
+}
