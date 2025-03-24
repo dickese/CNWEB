@@ -2,6 +2,8 @@ function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
+
+
 const itemsPerPage = 6
 let currentPage = 1
 let defaultProducts = products;
@@ -20,8 +22,8 @@ function renderProductsPage(page, products) {
                     <div class="image-container">
                         <img src="${product.images[0]}" class="card-img-top" alt="${product.name}">
                         <div class="overlay"></div>
-                        <a href="./ChiTietSanPham.html?id=${product.id}" class="btn btn-primary view-details">Xem chi tiết</a>
-                    </div>
+                        <a href="#" class="btn btn-primary view-details" data-id="${product.id}">Xem chi tiết</a>
+                    </div> 
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="price">${product.price.toLocaleString("vi-VN")} đ</p>
@@ -80,10 +82,48 @@ function filterProducts(category, type) {
 function onChange() {
     const category = getQueryParam("category");
     const type = getQueryParam("type");
-    
+    loadSubPage(category)
+    loadBanner(category)
+    loadCategoryList(category);
     renderProductsPage(1, filterProducts(category, type))
 }
 
+function loadSubPage(category) {
+    let subPage;
+    if (category === "ao") {
+        subPage = "Áo"
+    }
+    else if (category === "quan") {
+        subPage = "Quần"
+    }
+    else {
+        subPage = "Phụ kiện"
+    }
+    $("#sub").text(subPage)
+}
+
+function loadBanner(category) {
+    const banner = banners.find(b => b.category === category)
+    $(".banner-image").attr("src", banner.img);
+    $(".banner-title").text(banner.title)
+    $(".banner-desciption").text(banner.description)
+}
+
+function loadCategoryList(category) {
+    const categoryTitle = document.getElementById("category-title");
+    const categoryListContainer = document.getElementById("category-list");
+
+    categoryListContainer.innerHTML = "";
+
+    if (categoryList[category]) {
+        categoryTitle.textContent = `${category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện"}`;
+        categoryList[category].forEach(subcategory => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<a href="SanPham.html?category=${category}&type=${subcategory.type}">${subcategory.name}</a>`;
+            categoryListContainer.appendChild(listItem);
+        });
+    }
+}
 
 $(document).ready(function () {
     onChange();
@@ -98,10 +138,11 @@ $(document).ready(function () {
 
         renderProductsPage(1, filterProducts(category, subcategory));
     });
-    $(document).on("click", ".view-detail", function (event) {
+    $(document).on("click", ".view-details", function (event) {
         event.preventDefault();
         let productId = $(this).data("id");
-        window.location.href = `./ChiTietSanPham.html?id="${productId}"`;
+        localStorage.setItem("id", productId)
+        window.location.href = `./ChiTietSanPham.html?id=${productId}`;
     });
 
 });
