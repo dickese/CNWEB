@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scam Shop | Giỏ Hàng</title>
     <link rel="stylesheet" href="../CSS/header footer.css">
+    <link rel="stylesheet" href="../CSS/giohang.css">
     <link rel="stylesheet" href="../CSS/bootstrap.css">
     <script src="/JS/jquery-3.4.1.min.js"></script>
     <script src="/JS/bootstrap.js"></script>
@@ -106,9 +107,52 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        Giỏ hàng
-    </div>  
+    <main>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="Trangchu.html">Trang chủ</a></li>
+              <li
+                class="breadcrumb-item active"
+                aria-current="page"
+                id="breadcrumb-title">
+                Giỏ hàng
+              </li>
+            </ol>
+        </nav>
+        <div class="row w-75 mx-auto">
+            <div class="col-md-9">
+                <div class="container my-5">
+                    
+                    <table class="table align-middle">
+                        <thead class="thead">
+                            <tr>
+                                <th class="text-start text-uppercase">Sản phẩm</th>
+                                <th class="text-center text-uppercase">Số lượng</th>
+                                <th class="text-end text-uppercase">Giá</th>
+                                <th class="text-end text-uppercase">Tổng tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Các sản phẩm sẽ render tại đây -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-start tongsp">
+                        <p class="fw-medium mb-1">Tổng sản phẩm: <span id="total-quantity">0</span></p>
+                        <p class="text-warning fw-medium mb-1">TẠM TÍNH: <span id="total-price">0</span> đ</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-4">
+                        <a href="Trangchu.html" class="btn btn-outline-dark w-25 px-4 py-2">TIẾP TỤC MUA HÀNG</a>
+                        <a href="Thanhtoan.html" class="btn btn-dark w-25 px-4 py-2">ĐẶT HÀNG</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-items-center justify-content-center">
+                <img src="../img/giohang/giohang.webp" alt="Giỏ hàng" class="img-fluid">
+            </div>
+        </div>    
+    </main>  
     <footer class="text-white" style="background:rgb(29, 24, 24);">
         <div class="container">
             <div class="row">
@@ -178,6 +222,7 @@
             </div>
         </div>
     </footer>
+    <script src="../JS/laysphienthiragiohang.js"></script>
 </body>
 
 </html>
