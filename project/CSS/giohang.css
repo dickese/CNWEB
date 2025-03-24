@@ -17,9 +17,6 @@ footer{
 .thead{
     border-bottom: 3px solid black;
 }
-#cart-items{
-    border-bottom: 1.5px dashed black;
-}
 .btn-decrease,
 .btn-increase {
     padding: 2px 6px;
