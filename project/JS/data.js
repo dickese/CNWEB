@@ -9,6 +9,29 @@ const accounts = [
     }
 ]
 
+
+const banners = [
+  {
+    category: "ao",
+    title: "Áo Scam",
+    description: "Áo Scam đẹp, kiểu dáng thanh lịch cùng chất liệu cao cấp sẽ giúp bạn xây dựng hình tượng, phong cách lịch lãm, thu hút mọi ánh nhìn",
+    img : "../IMG/banner/ao.jpg"
+  },
+    {
+    category: "quan",
+    title: "Quần Scam",
+    description: "Quần Scam đẹp, kiểu dáng thanh lịch cùng chất liệu cao cấp sẽ giúp bạn xây dựng hình tượng, phong cách lịch lãm, thu hút mọi ánh nhìn",
+    img : "../IMG/banner/quan.jpg"
+  },
+      {
+    category: "phu-kien",
+    title: "Phụ kiện Scam",
+    description: "Phu kiện Scam đẹp, kiểu dáng thanh lịch cùng chất liệu cao cấp sẽ giúp bạn xây dựng hình tượng, phong cách lịch lãm, thu hút mọi ánh nhìn",
+    img : "../IMG/banner/phukien.jpg"
+  },
+
+
+]
 const products = [
   {
     id: "AR250118NT",
@@ -28,7 +51,7 @@ const products = [
     type: "ao-thun"
   },
   {
-    id: "AR250120BL",
+    id: "AR250120BK",
     name: "Áo Sơ Mi Nam Xanh Biển",
     price: 629000,
     description: "Áo sơ mi xanh biển, thiết kế trẻ trung, phong cách hiện đại.",
@@ -42,7 +65,7 @@ const products = [
     stock: 18,
     rating: 4.7,
     reviews: 98,
-    type: "quan-jean"
+    type: "quan-jean",
   },
       {
     id: "AR250120BL",
@@ -322,7 +345,31 @@ const products = [
   }
 ];
 
+const categoryList = {
+        ao: [
+            { name: "Áo thun", type: "ao-thun" },
+            { name: "Áo sơ mi", type: "ao-so-mi" },
+            { name: "Áo khoác", type: "ao-khoac" },
+            { name: "Áo len", type: "ao-len" },
+            { name: "Áo nỉ", type: "ao-ni" }
+        ],
+        quan: [
+            { name: "Quần jean", type: "quan-jean" },
+            { name: "Quần kaki", type: "quan-kaki" },
+            { name: "Quần short", type: "quan-short" },
+            { name: "Quần âu", type: "quan-au" },
+            { name: "Quần dài", type: "quan-dai" }
+        ],
+        "phu-kien": [
+            { name: "Mũ", type: "mu" },
+            { name: "Túi xách", type: "tui-xach" },
+            { name: "Giày", type: "giay" },
+            { name: "Dây nịt", type: "day-nit" },
+            { name: "Ví", type: "vi" }
+        ]
+    };
 window.products = products
 window.accounts = accounts
-
+window.categoryList = categoryList
+window.banners = banners
 
