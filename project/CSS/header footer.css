@@ -11,7 +11,7 @@ body {
     color: #007bff !important;
 }
 .nav-item{
-    margin: 0;
+    margin: 0 7px;
 }
 #imguser{
     width: 40px;
@@ -21,7 +21,7 @@ body {
 }
 #search-input{
     border-radius: 50px;
-    margin: 0 10px 0 10px;
+    width: 300px;
 }
 #navbarNav ul li a:hover{
     color: #007bff	;
@@ -42,6 +42,35 @@ footer ul {
 footer p{
     margin-bottom: 5px;
 }
+#footer-bottom{
+    border-top: white 1px solid;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+#footer-bottom b{
+    margin-top: 10px;
+    color: rgb(255, 215, 0);
+}
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+#info a{
+    color: rgb(255, 215, 0);
+}
+#info a:hover{
+    color: red;
+}
+#product a{
+    color: rgb(255, 215, 0);
+}
+#product a:hover{
+    color: red;
+}
+#contact a{
+    color: rgb(255, 215, 0);
+    text-decoration: none;
+}
+.body-main {
+    margin: 26px 400px 26px 400px;
+    background-color: #fff;
 }
