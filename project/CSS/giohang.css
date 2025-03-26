@@ -1,0 +1,29 @@
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+}
+table img {
+    border-radius: 10%;
+    margin-right: 2%;
+}
+nav{
+    margin-bottom: 2%;
+}
+footer{
+    margin-top: 2%;
+}
+.tongsp{
+    margin-left: 75%;
+}
+.thead{
+    border-bottom: 3px solid black;
+}
+.btn-decrease,
+.btn-increase {
+    padding: 2px 6px;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.spanquantity {
+    padding: 0 8px; /* Thêm khoảng cách giữa số và các nút */
+}

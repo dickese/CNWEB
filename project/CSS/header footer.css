@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#scamshop{
+    margin-right: 50px;
+}
+.navbar-brand {
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #007bff !important;
+}
+.nav-item{
+    margin: 0 7px;
+}
+#imguser{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin : 0 10px 0 10px;
+}
+#search-input{
+    border-radius: 50px;
+    width: 300px;
+}
+#navbarNav ul li a:hover{
+    color: #007bff	;
+}
+#aboutus a{
+    margin-right: 15px;
+    text-decoration: none;
+}
+footer h4{
+    margin-top: 10px;
+}
+footer ul li{
+    list-style-type: none;
+}
+footer ul {
+    padding: 0;
+}
+footer p{
+    margin-bottom: 5px;
+}
+#footer-bottom{
+    border-top: white 1px solid;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+#footer-bottom b{
+    margin-top: 10px;
+    color: rgb(255, 215, 0);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+#info a{
+    color: rgb(255, 215, 0);
+}
+#info a:hover{
+    color: red;
+}
+#product a{
+    color: rgb(255, 215, 0);
+}
+#product a:hover{
+    color: red;
+}
+#contact a{
+    color: rgb(255, 215, 0);
+    text-decoration: none;
+}
+.body-main {
+    margin: 26px 400px 26px 400px;
+    background-color: #fff;
+}

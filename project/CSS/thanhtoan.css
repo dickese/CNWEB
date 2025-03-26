@@ -1,0 +1,53 @@
+.form-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    border: none; /* Ẩn viền mặc định */
+}
+
+.summary-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+    background-color: #ffcc00;
+    border: none;
+}
+
+h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    padding-top: 5%;
+    
+}
+.form-label{
+    font-weight: bold;
+}
+.form-select{
+    width: 100%;
+    border: none;
+    border: 1px solid rgb(199, 198, 198);
+    border-radius: 5px;
+    height: 40px;
+    color: gray;
+    opacity: 1;
+}
+
+.btn-warning:hover {
+    background-color: #e6b800;
+    color: white;
+}
+.ffff{
+    margin-left: 5%;
+}
+#note {
+    resize: none;
+}

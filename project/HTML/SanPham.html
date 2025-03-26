@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Scam Shop | Sản Phẩm</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <script src="../JS/jquery-3.4.1.min.js"></script>
+    <script src="../JS/bootstrap.js"></script>
+    <script src="..//JS/data.js"></script>
+    <link rel="stylesheet" href="../CSS/header footer.css">
+    <link rel="stylesheet" href="../CSS/page.css">
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon web -->
+    <link rel="icon" href="../IMG/favicon.png">
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <div id="scamshop">
+                <a class="navbar-brand" href="Trangchu.html">Scam Shop</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Trangchu.html">
+                            <i class="fa-solid fa-house"></i>
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex">
+                            <a class="nav-link" href="SanPham.html?category=ao" data-category="ao">Áo</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-category="ao"
+                                data-bs-toggle="dropdown">
+                            </span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-thun"
+                                    data-subcategory="ao-thun">Áo thun</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-so-mi"
+                                    data-subcategory="ao-so-mi">Áo sơ mi</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-khoac"
+                                    data-subcategory="ao-khoac">Áo khoác</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-len"
+                                    data-subcategory="ao-len">Áo len</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-ni"
+                                    data-subcategory="ao-ni">Áo nỉ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex">
+                            <a class="nav-link" href="SanPham.html?category=quan">Quần</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-category="quan"
+                                data-bs-toggle="dropdown">
+                            </span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-jean"
+                                    data-subcategory="quan-jean">Quần jean</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-kaki"
+                                    data-subcategory="quan-kaki">Quần kaki</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-short"
+                                    data-subcategory="quan-short">Quần short</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-au"
+                                    data-subcategory="quan-au">Quần âu</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-dai"
+                                    data-subcategory="quan-dai">Quần dài</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="d-flex">
+                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ
+                                Kiện</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
+                            </span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=mu"
+                                    data-subcategory="mu">Mũ</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=tui-xach"
+                                    data-subcategory="tui-xach">Túi xách</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=giay"
+                                    data-subcategory="giay">Giày</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=day-nit"
+                                    data-subcategory="day-nit">Dây nịt</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=vi"
+                                    data-subcategory="vi">Ví</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Khuyenmai.html">Khuyến mãi</a>
+                    </li>
+                    <form id="search-form" class="d-flex ml-3 mr-3">
+                        <input id="search-input" class="form-control me-2" type="search" placeholder="Bạn cần tìm gì ?">
+                    </form>
+                    <li class="nav-item mr-3 dropdown">
+                        <div class="d-flex">
+                            <a href="Dangnhap.html" class="nav-link">
+                                <i class="fa-solid fa-user "></i>
+                            </a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0" data-bs-toggle="dropdown">
+                            </span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Dangnhap.html">Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="Dangky.html">Đăng ký</a></li>
+                            <!-- <li><a class="dropdown-item" href="Thongtintaikhoan.html">Thông tin tài khoản</a></li> -->
+                            <!-- <li><a href="" class="dropdown-item">Lịch sử giao dịch</a></li> -->
+                            <li><a class="dropdown-item" href="Giohang.html">Giỏ hàng</a></li>
+                            <li><a class="dropdown-item" href="Trangchu.html">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Giohang.html" class="nav-link">
+                            <i class="fa-solid fa-bag-shopping "> </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="breadcumbs">
+                <ul class="items">
+                    <li class="item-home"><a href="./Trangchu.html" class="text-decoration-none">Trang chủ</a>
+                    </li>
+                    <li id="sub"></li>
+                </ul>
+            </div>
+            <div class="banner">
+                <img src="" class="banner-image" alt="">
+                <div class="banner-category">
+                    <h1 class="banner-title"></h1>
+                    <p class="banner-desciption"></p>
+                </div>
+            </div>
+            <div class="main-content">
+                <aside>
+                    <h3 id="category-title"></h3>
+                    <ul id="category-list"></ul>
+                </aside>
+                <div class="row" id="products-container"></div>
+            </div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </main>
+    <footer class="text-white" style="background:rgb(29, 24, 24);">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex flex-column">
+                    <h4>
+                        VỀ CHÚNG TÔI
+                    </h4>
+                    <p>
+                        Chúng tôi luôn lấy uy tín đặt trên hàng đầu đối với khách hàng, hy vọng chúng tôi sẽ được phục
+                        vụ các bạn. Cám ơn!
+                    </p>
+                    <span id="aboutus">
+                        <a href="">
+                            <i class="fa-brands fa-facebook fa-beat fa-xl"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa-brands fa-facebook-messenger fa-xl fa-beat"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa-solid fa-phone fa-beat fa-xl"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa-solid fa-envelope fa-beat fa-xl"></i>
+                        </a>
+                    </span>
+                </div>
+                <div class="col d-flex flex-column">
+                    <h4>LIÊN HỆ</h4>
+                    <p>
+                        Địa chỉ : 12345 Abc xyz
+                    </p>
+                    <p id="contact">Email : <a href="">Abc123456@gmail.com</a></p>
+                    <p>
+                        Gọi mua: 0916133705
+                    </p>
+                    <p>
+                        Khiếu nại: 0916133705
+                    </p>
+                    <p>
+                        Bảo hành: 0916133705
+                    </p>
+                </div>
+                <div class="col d-flex flex-column">
+                    <h4>SẢN PHẨM</h4>
+                    <ul id="product">
+                        <li><a class="text-decoration-none" href="Ao.html">Áo</a></li>
+                        <li><a class="text-decoration-none" href="Quan.html">Quần</a></li>
+                        <li><a class="text-decoration-none" href="Phukien.html">Phụ kiện</a></li>
+                    </ul>
+                </div>
+                <div class="col d-flex flex-column">
+                    <h4>THÔNG TIN</h4>
+                    <ul id="info">
+                        <li><a class="text-decoration-none" href="Thongtin.html#cstt">Chính sách thanh toán</a></li>
+                        <li><a class="text-decoration-none" href="Thongtin.html#csgh">Chính sách giao hàng</a></li>
+                        <li><a class="text-decoration-none" href="Thongtin.html#csdt">Chính sách đổi trả</a></li>
+                        <li><a class="text-decoration-none" href="Thongtin.html#csbh">Chính sách bảo hành</a></li>
+                        <li><a class="text-decoration-none" href="Thongtin.html#csdh">Chính sách đặt hàng</a></li>
+                        <li><a class="text-decoration-none" href="Thongtin.html#gt">Giới thiệu</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row m-0" id="footer-bottom">
+                <b>
+                    <i>Copyright © 2025 ScamShop.com - Vận Hành By ScamShop</i>
+                </b>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../JS/render.js"></script>
+<script src="../JS/animation.js"></script>
+
+</html>
