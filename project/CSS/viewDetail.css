@@ -1,12 +1,14 @@
 .product-title {
     font-size: 24px;
     font-weight: bold;
+    margin: 10px 0;
 }
 
 .product-price {
     font-size: 20px;
     font-weight: bold;
     color: #333;
+    margin: 10px 0;
 }
 
 .btn-cart {
@@ -35,4 +37,32 @@
 
 .breadcrumb {
     background: none;
+}
+#sub-img1,
+#sub-img2,
+#sub-img3 {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.related-products{
+    margin: 5px 0;
+}
+
+#product-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+
+#product-image {
+    transition: transform 0.2s ease;
+    cursor: zoom-in;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }

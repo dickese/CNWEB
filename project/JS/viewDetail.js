@@ -1,7 +1,10 @@
 function renderProductDetail(product) {
     if (product) {
         $("#product-image").attr("src", product.images[0]);
-        $("#product-title").text(product.name);
+        $("#sub-img1").attr("src", product.images[0]);
+        $("#sub-img2").attr("src", product.images[1]);
+        $("#sub-img3").attr("src", product.images[2]);
+        $("#product-title").text(product.name + ' - ' + product.id);
         $("#product-price").text(product.price.toLocaleString("vi-VN") + " đ");
         $("#product-description").text(product.description);
 
@@ -25,7 +28,6 @@ function renderProductDetail(product) {
 }
 let selectedSize = ""; // Lưu trữ size được chọn
 
-// Xử lý sự kiện khi người dùng chọn size
 $(document).on("click", ".size-button", function () {
     $(".size-button").removeClass("selected"); // Bỏ chọn size cũ
     $(this).addClass("selected"); // Đánh dấu size mới được chọn
@@ -55,9 +57,37 @@ function renderRelatedProducts(product) {
     });
 }
 
+
+
  $(document).ready(function () {
     const productId = localStorage.getItem("id")
     const product = products.find(p => p.id === productId)
     console.log(product)
     renderProductDetail(product);
+    $(document).on("mouseenter", ".sub-img", function () {
+        const newSrc = $(this).attr("src");
+        $("#product-image").attr("src", newSrc);
+    });
+     $(document).on("mousemove", "#product-image", function (e) {
+    const image = $(this);
+    const offsetX = e.offsetX; 
+    const offsetY = e.offsetY; 
+    const width = image.width();
+    const height = image.height();
+
+    const posX = (offsetX / width) * 100; 
+    const posY = (offsetY / height) * 100;
+
+    image.css({
+        "transform-origin": `${posX}% ${posY}%`, 
+        "transform": "scale(2)",
+    });
+});
+
+    $(document).on("mouseleave", "#product-image", function () {
+    $(this).css({
+        "transform": "scale(1)", 
+        "transform-origin": "center center", 
+    });
+});
 });

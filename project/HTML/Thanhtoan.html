@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../CSS/tuongthich.css">
     <link rel="stylesheet" href="../CSS/header footer.css" />
     <link rel="stylesheet" href="../CSS/thanhtoan.css">
+    <link rel="stylesheet" href="../CSS/page.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -127,64 +128,56 @@
             </div>
         </div>
     </nav>
+    <div class="breadcumbs">
+        <ul class="items">
+            <li class="item-home"><a href="./Trangchu.html" class="text-decoration-none">Trang chủ</a>
+            </li>
+            <li><a href="Giohang.html" id="sub">Giỏ hàng</a></li>
+            <li id="thanhtoan">Thanh toán</li>
+        </ul>
+    </div>
     <main>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="Trangchu.html">Trang chủ</a></li>
-              <li class="breadcrumb-item"><a href="Giohang.html">Giỏ hàng</a></li>
-              <li
-                class="breadcrumb-item active"
-                aria-current="page"
-                id="breadcrumb-title">
-                Thanh toán
-              </li>
-            </ol>
-        </nav>
-        <div class="container-fluid my-5 w-75">
+        <div class="container-fluid my-5">
             <div class="row g-4">
-                <!-- Phần bên trái: Form nhập thông tin giao hàng -->
                 <div class="col-lg-6">
                     <div class="form-section">
                         <form>
                             <h5>1. Địa chỉ giao hàng</h5>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Địa chỉ email *</label>
+                                <label for="email" class="form-label">Địa chỉ email <span style="color: red;">*</span></label>
                                 <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Họ và tên *</label>
+                                <label for="name" class="form-label">Họ và tên <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
                             </div>
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Số điện thoại *</label>
+                                <label for="phone" class="form-label">Số điện thoại <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại">
                             </div>
                             <div class="mb-3">
-                                <label for="city" class="form-label">Tỉnh/Thành phố *</label><br>
+                                <label for="city" class="form-label">Tỉnh/Thành phố <span style="color: red;">*</span></label><br>
                                 <select id="city" class="form-select">
-                                    <option selected disabled>Vui lòng chọn tỉnh/thành phố</option>
-                                    <option>Hà Nội</option>
-                                    <option>Hồ Chí Minh</option>
+                                    <option value="">Vui lòng chọn Tỉnh/Thành phố</option>
+                                    <option value="hanoi">TP. Hà Nội</option>
+                                    <option value="hochiminh">TP. Hồ Chí Minh</option>
+                                    <option value="dongnai">Đồng Nai</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="district" class="form-label">Quận/Huyện *</label><br>
+                                <label for="district" class="form-label">Quận/Huyện <span style="color: red;">*</span></label><br>
                                 <select id="district" class="form-select">
-                                    <option selected disabled>Vui lòng chọn quận/huyện</option>
-                                    <option>Quận 1</option>
-                                    <option>Quận 2</option>
+                                    <option value="">Vui lòng chọn Quận/Huyện</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label">Địa chỉ đường *</label>
+                                <label for="address" class="form-label">Địa chỉ đường <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ">
                             </div>
                             <div class="mb-3">
-                                <label for="ward" class="form-label">Phường/Xã *</label><br>
+                                <label for="ward" class="form-label">Phường/Xã <span style="color: red;">*</span></label><br>
                                 <select id="ward" class="form-select">
-                                    <option selected disabled>Vui lòng chọn phường/xã</option>
-                                    <option>Phường 1</option>
-                                    <option>Phường 2</option>
+                                    <option value="">Vui lòng chọn Phường/Xã</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -194,7 +187,7 @@
     
                             <h5 class="titleborder">2. Vận chuyển</h5>
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="shipping" id="standardShipping">
+                                <input class="form-check-input" type="radio" name="shipping" id="standardShipping" checked>
                                 <label class="form-check-label" for="standardShipping">
                                     GHN - Tiêu chuẩn - Tính phí: <strong>30,000 ₫</strong>
                                 </label>
@@ -202,7 +195,7 @@
     
                             <h5 class="titleborder">3. Phương thức thanh toán</h5>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="payment" id="cashPayment">
+                                <input class="form-check-input" type="radio" name="payment" id="cashPayment" checked>
                                 <label class="form-check-label" for="cashPayment">Thanh toán khi nhận hàng</label>
                             </div>
                             <div class="form-check">

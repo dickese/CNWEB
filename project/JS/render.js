@@ -22,7 +22,7 @@ function renderProductsPage(page, products) {
                     <div class="image-container">
                         <img src="${product.images[0]}" class="card-img-top" alt="${product.name}">
                         <div class="overlay"></div>
-                        <a href="#" class="btn btn-primary view-details" data-id="${product.id}">Xem chi tiết</a>
+                        <a href="#" class="btn btn-secondary view-details" data-id="${product.id}">Xem chi tiết</a>
                     </div> 
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
@@ -128,13 +128,13 @@ function loadCategoryList(selectedCategory) {
     const categoryTitle = document.getElementById("category-title");
     const categoryListContainer = document.getElementById("category-list");
 
-    categoryTitle.textContent = "Danh mục sản phẩm";
+    categoryTitle.textContent = "Bộ sưu tập";
     categoryListContainer.innerHTML = "";
 
     Object.keys(categoryList).forEach(category => {
         const categoryBlock = document.createElement("div");
         categoryBlock.classList.add("category-block");
-        categoryBlock.setAttribute("data-category", category); // Thêm data-category
+        categoryBlock.setAttribute("data-category", category);
 
         if (category === selectedCategory) {
             categoryBlock.classList.add("active");
@@ -162,6 +162,7 @@ function loadCategoryList(selectedCategory) {
 ////////////////////////////////////////
 $(document).ready(function () {
     onChange();
+
     $(document).on("click", ".dropdown-item", function (event) {
         event.preventDefault();
 

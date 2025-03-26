@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalProduct = 0;
         let totalPrice = 0;
 
-        tbody.innerHTML = ""; // Xóa nội dung cũ trong bảng
+        tbody.innerHTML = ""; 
 
         cart.forEach((item, index) => {
             const { name, price, quantity, img } = item;
             const totalItemPrice = price * quantity;
 
-            totalProduct += quantity; // Cộng tổng số lượng sản phẩm
-            totalPrice += totalItemPrice; // Cộng tổng giá tiền
+            totalProduct += quantity; 
+            totalPrice += totalItemPrice; 
 
             const row = `
                 <tr>
@@ -40,11 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
             tbody.innerHTML += row;
         });
 
-        // Cập nhật tổng số lượng sản phẩm hiển thị trong tiêu đề
         totalProductElement.textContent = totalProduct;
         totalPriceElement.textContent = totalPrice.toLocaleString() + " ₫";
 
-        // Thành tiền = Tổng tiền + phí vận chuyển cố định 30,000 ₫
         const shippingFee = 30000;
         const finalPrice = totalPrice + shippingFee;
         finalPriceElement.textContent = finalPrice.toLocaleString() + " ₫";
@@ -84,4 +82,58 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "Trangchu.html";
         }
     });
+});
+const districts = {
+    hanoi: { 
+        "Ba Đình": ["Phúc Xá", "Trúc Bạch", "Vĩnh Phúc"], 
+        "Hoàn Kiếm": ["Hàng Bài", "Hàng Buồm", "Lý Thái Tổ"], 
+        "Cầu Giấy": ["Dịch Vọng", "Yên Hòa", "Mai Dịch"] 
+    },
+    hochiminh: { 
+        "Quận 1": ["Bến Nghé", "Bến Thành", "Cô Giang", "Phạm Ngũ Lão"], 
+        "Quận 2": ["Thảo Điền", "Bình An", "An Phú"], 
+        "Bình Thạnh": ["Phường 1", "Phường 2", "Phường 3", "Phường 27"], 
+        "Gò Vấp": ["Phường 1", "Phường 3", "Phường 4", "Phường 10"] 
+    },
+    dongnai: { 
+        "Thống Nhất": ["Bàu Hàm 2", "Quang Trung", "Gia Tân 1"], 
+        "Long Khánh": ["Bảo Vinh", "Bảo Quang", "Hàng Gòn"], 
+        "Trảng Bom": ["Bàu Hàm", "Tây Hòa"], 
+        "Biên Hòa": ["Trảng Dài", "Tam Hiệp"] 
+    }
+};
+
+document.getElementById("city").addEventListener("change", function () {
+    let city = this.value;
+    let districtSelect = document.getElementById("district");
+    let wardSelect = document.getElementById("ward");
+
+    districtSelect.innerHTML = '<option value="">Vui lòng chọn Quận/Huyện</option>';
+    wardSelect.innerHTML = '<option value="">Vui lòng chọn Phường/Xã</option>';
+
+    if (districts[city]) {
+        Object.keys(districts[city]).forEach(district => {
+            let option = document.createElement("option");
+            option.value = district;
+            option.textContent = district;
+            districtSelect.appendChild(option);
+        });
+    }
+});
+
+document.getElementById("district").addEventListener("change", function () {
+    let city = document.getElementById("city").value;
+    let district = this.value;
+    let wardSelect = document.getElementById("ward");
+
+    wardSelect.innerHTML = '<option value="">Vui lòng chọn Phường/Xã</option>';
+
+    if (districts[city] && districts[city][district]) {
+        districts[city][district].forEach(ward => {
+            let option = document.createElement("option");
+            option.value = ward;
+            option.textContent = ward;
+            wardSelect.appendChild(option);
+        });
+    }
 });

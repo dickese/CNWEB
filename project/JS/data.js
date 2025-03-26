@@ -60,7 +60,9 @@ const products = [
     material: "Linen pha Cotton",
      category: "quan",
     images: [
-      "../IMG/quan/dsc08155-2.webp"
+      "../IMG/quan/dsc08155-2.webp",
+      "../IMG/quan/qjr241251._1.webp",
+      "../IMG/quan/qjr241252._1-2.webp",
     ],
     stock: 18,
     rating: 4.7,
@@ -346,28 +348,29 @@ const products = [
 ];
 
 const categoryList = {
-        ao: [
-            { name: "Áo thun", type: "ao-thun" },
-            { name: "Áo sơ mi", type: "ao-so-mi" },
-            { name: "Áo khoác", type: "ao-khoac" },
-            { name: "Áo len", type: "ao-len" },
-            { name: "Áo nỉ", type: "ao-ni" }
-        ],
-        quan: [
-            { name: "Quần jean", type: "quan-jean" },
-            { name: "Quần kaki", type: "quan-kaki" },
-            { name: "Quần short", type: "quan-short" },
-            { name: "Quần âu", type: "quan-au" },
-            { name: "Quần dài", type: "quan-dai" }
-        ],
-        "phu-kien": [
-            { name: "Mũ", type: "mu" },
-            { name: "Túi xách", type: "tui-xach" },
-            { name: "Giày", type: "giay" },
-            { name: "Dây nịt", type: "day-nit" },
-            { name: "Ví", type: "vi" }
-        ]
-    };
+  ao: [
+    { name: "Áo thun", type: "ao-thun" },
+    { name: "Áo sơ mi", type: "ao-so-mi" },
+    { name: "Áo khoác", type: "ao-khoac" },
+    { name: "Áo len", type: "ao-len" },
+    { name: "Áo nỉ", type: "ao-ni" }
+  ],
+  quan: [
+    { name: "Quần jean", type: "quan-jean" },
+    { name: "Quần kaki", type: "quan-kaki" },
+    { name: "Quần short", type: "quan-short" },
+    { name: "Quần âu", type: "quan-au" },
+    { name: "Quần dài", type: "quan-dai" }
+  ],
+  "phu-kien": [
+    { name: "Mũ", type: "mu" },
+    { name: "Túi xách", type: "tui-xach" },
+    { name: "Giày", type: "giay" },
+    { name: "Dây nịt", type: "day-nit" },
+    { name: "Ví", type: "vi" }
+  ]
+};
+
 window.products = products
 window.accounts = accounts
 window.categoryList = categoryList
