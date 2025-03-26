@@ -1,0 +1,105 @@
+/* Footer chung */
+footer {
+    padding: 20px 0;
+}
+
+/* Layout linh hoạt theo kích thước màn hình */
+#footer-top{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mặc định 4 cột */
+    gap: 20px;
+}
+
+/* Kích thước chữ và icon hợp lý */
+footer h4 {
+    font-size: 1.2rem;
+}
+
+footer p, footer ul li {
+    font-size: 1rem;
+}
+
+#aboutus a i, footer i {
+    font-size: 1.2rem; /* Kích thước icon */
+}
+
+/* Điều chỉnh cho màn hình Tablet */
+@media (max-width: 1024px) {
+    #footer-top {
+        grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+    }
+}
+
+/* Điều chỉnh cho màn hình Mobile */
+@media (max-width: 600px) {
+    #footer-top {
+        grid-template-columns: repeat(1, 1fr); /* Chuyển thành 1 cột */
+    }
+
+    footer h4 {
+        font-size: 1rem;
+    }
+
+    footer p, footer ul li {
+        font-size: 0.9rem;
+    }
+
+    #aboutus a i, footer i {
+        font-size: 1rem !important; /* Giảm kích thước icon */
+    }
+
+    #footer-bottom{
+        font-size: 0.5rem;
+        text-align: center; /* Căn giữa copyright */
+    }
+}
+
+
+/* Responsive cho Tablet */
+@media (max-width: 1024px) {
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-item i {
+        font-size: 0.9rem;
+    }
+    .nav-item{
+        margin: 0 5px;
+    }
+    #search-form {
+        width: 200px;
+    }
+}
+
+/* Responsive cho Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 5px 0;
+    }
+
+    .navbar-toggler {
+        font-size: 1rem; /* Thu nhỏ nút mở menu */
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .navbar-nav .nav-item i {
+        font-size: 0.9rem;
+    }
+
+    #search-form {
+        width: 100%;
+    }
+}
+

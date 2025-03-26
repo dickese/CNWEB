@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chi Tiết Sản Phẩm - TechStore</title>
@@ -13,16 +14,21 @@
     <link rel="stylesheet" href="../CSS/viewDetail.css" />
     <link rel="stylesheet" href="../CSS/header footer.css">
     <link rel="stylesheet" href="../CSS/page.css">
+    <link rel="stylesheet" href="../CSS/tuongthich.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <body>
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
             <div id="scamshop">
                 <a class="navbar-brand" href="Trangchu.html">Scam Shop</a>
             </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -34,43 +40,61 @@
                     <li class="nav-item dropdown">
                         <div class="d-flex">
                             <a class="nav-link" href="SanPham.html?category=ao" data-category="ao">Áo</a>
-                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent"  data-category="ao" data-bs-toggle="dropdown">
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-category="ao"
+                                data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-thun" data-subcategory="ao-thun">Áo thun</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-so-mi" data-subcategory="ao-so-mi">Áo sơ mi</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-khoac" data-subcategory="ao-khoac">Áo khoác</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-len" data-subcategory="ao-len">Áo len</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-ni" data-subcategory="ao-ni">Áo nỉ</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-thun"
+                                    data-subcategory="ao-thun">Áo thun</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-so-mi"
+                                    data-subcategory="ao-so-mi">Áo sơ mi</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-khoac"
+                                    data-subcategory="ao-khoac">Áo khoác</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-len"
+                                    data-subcategory="ao-len">Áo len</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=ao&type=ao-ni"
+                                    data-subcategory="ao-ni">Áo nỉ</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="SanPham.html">Quần</a>
-                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent"  data-category="quan" data-bs-toggle="dropdown">
+                            <a class="nav-link" href="SanPham.html?category=quan">Quần</a>
+                            <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-category="quan"
+                                data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-jean" data-subcategory="quan-jean">Quần jean</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-kaki" data-subcategory="quan-kaki">Quần kaki</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-short" data-subcategory="quan-short">Quần short</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-au" data-subcategory="quan-au">Quần âu</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-dai" data-subcategory="quan-dai">Quần dài</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-jean"
+                                    data-subcategory="quan-jean">Quần jean</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-kaki"
+                                    data-subcategory="quan-kaki">Quần kaki</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-short"
+                                    data-subcategory="quan-short">Quần short</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-au"
+                                    data-subcategory="quan-au">Quần âu</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=quan&type=quan-dai"
+                                    data-subcategory="quan-dai">Quần dài</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="SanPham.html"  data-category="phu-kien">Phụ Kiện</a>
+                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ
+                                Kiện</a>
                             <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=mu" data-subcategory="mu">Mũ</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=tui-xach" data-subcategory="tui-xach">Túi xách</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=giay" data-subcategory="giay">Giày</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=day-nit" data-subcategory="day-nit">Dây nịt</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=vi" data-subcategory="vi">Ví</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=mu"
+                                    data-subcategory="mu">Mũ</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=tui-xach"
+                                    data-subcategory="tui-xach">Túi xách</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=giay"
+                                    data-subcategory="giay">Giày</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=day-nit"
+                                    data-subcategory="day-nit">Dây nịt</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=vi"
+                                    data-subcategory="vi">Ví</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -105,49 +129,47 @@
             </div>
         </div>
     </nav>
+    <main>
+        <div class="container mt-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="Trangchu.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-title">
+                        Sản phẩm
+                    </li>
+                </ol>
+            </nav>
 
-    <div class="container mt-3">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="Trangchu.html">Trang chủ</a></li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-            id="breadcrumb-title">
-            Sản phẩm
-          </li>
-        </ol>
-      </nav>
+            <div class="row">
+                <div class="col-md-6">
+                    <img id="product-image" src="" class="img-fluid" alt="Sản phẩm" />
+                </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <img id="product-image" src="" class="img-fluid" alt="Sản phẩm" />
+                <div class="col-md-6">
+                    <h1 id="product-title" class="product-title"></h1>
+                    <p id="product-price" class="product-price"></p>
+                    <p><strong>Màu sắc:</strong> <span id="product-color"></span></p>
+                    <div id="size-options" class="size-options">
+                        <span class="size-option" data-size="S">S</span>
+                        <span class="size-option" data-size="M">M</span>
+                        <span class="size-option" data-size="L">L</span>
+                        <span class="size-option" data-size="XL">XL</span>
+                    </div>
+                    <button class="btn btn-cart mt-3 w-75 btn-add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+                    <h5 class="mt-4">Mô tả</h5>
+                    <p id="product-description"></p>
+                </div>
+            </div>
+            <div class="related-products">
+                <h3>Sản phẩm liên quan</h3>
+                <div class="row" id="related-products"></div>
+            </div>
         </div>
 
-        <div class="col-md-6">
-          <h1 id="product-title" class="product-title"></h1>
-          <p id="product-price" class="product-price"></p>
-          <p><strong>Màu sắc:</strong> <span id="product-color"></span></p>
-          <div id="size-options" class="size-options">
-            <span class="size-option" data-size="S">S</span>
-            <span class="size-option" data-size="M">M</span>
-            <span class="size-option" data-size="L">L</span>
-            <span class="size-option" data-size="XL">XL</span>
-          </div>
-          <button class="btn btn-cart mt-3 w-75 btn-add-to-cart">THÊM VÀO GIỎ HÀNG</button>
-          <h5 class="mt-4">Mô tả</h5>
-          <p id="product-description"></p>
-        </div>
-      </div>
-      <div class="related-products">
-            <h3>Sản phẩm liên quan</h3>
-            <div class="row" id="related-products"></div>
-        </div>
-    </div>
-
+    </main>
     <footer class="text-white" style="background:rgb(29, 24, 24);">
         <div class="container">
-            <div class="row">
+            <div class="row" id="footer-top">
                 <div class="col d-flex flex-column">
                     <h4>
                         VỀ CHÚNG TÔI
@@ -216,5 +238,6 @@
     </footer>
     <script src="../JS/viewDetail.js"></script>
     <script src="../JS/themspvaogiohang.js"></script>
-  </body>
+</body>
+
 </html>

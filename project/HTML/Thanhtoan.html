@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=h1, initial-scale=1.0" />
     <title>Scam Shop</title>
-    <link rel="stylesheet" href="../CSS/header footer.css" />
-    <link rel="stylesheet" href="../CSS/thanhtoan.css">
     <link rel="stylesheet" href="../CSS/bootstrap.css" />
     <script src="/JS/jquery-3.4.1.min.js"></script>
     <script src="/JS/bootstrap.js"></script>
+    <link rel="stylesheet" href="../CSS/tuongthich.css">
+    <link rel="stylesheet" href="../CSS/header footer.css" />
+    <link rel="stylesheet" href="../CSS/thanhtoan.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -24,6 +25,9 @@
             <div id="scamshop">
                 <a class="navbar-brand" href="Trangchu.html">Scam Shop</a>
             </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -74,8 +78,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ
-                                Kiện</a>
+                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ Kiện</a>
                             <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
                             </span>
                         </div>
@@ -260,7 +263,7 @@
     </main>
     <footer class="text-white" style="background:rgb(29, 24, 24);">
         <div class="container">
-            <div class="row">
+            <div class="row" id="footer-top">
                 <div class="col d-flex flex-column">
                     <h4>
                         VỀ CHÚNG TÔI
