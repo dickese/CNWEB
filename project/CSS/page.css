@@ -1,4 +1,5 @@
 .image-container {
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -107,6 +108,15 @@
 
 .breadcumbs{
     margin: 5px 0;
+    padding-left: 200px;
+}
+
+main{
+    width: 1400px; 
+    margin: auto;
+}
+.items li #sub{
+    text-decoration: none;
 }
 .items{
     margin: 10px 0;
@@ -115,22 +125,15 @@
     display: inline-flex;
 }
 
-.item-home::after{
+.item-home::after, #thanhtoan::before{
     content: "|";
     color: #656565 !important;
     margin: 0 10px;
 }
-.item-home a{
+.item-home a ,  #thanhtoan{
     color: #656565;
 }
 
-.main-content{
-    display: flex;
-}
-aside{
-    margin-right: 20px;
-    min-width: 150px;
-}
 #category-list{
     padding-left: 0;
 }
@@ -148,6 +151,11 @@ aside{
 .breadcumbs{
     text-align: left;
 }
+
+.items li #sub{
+    text-decoration: none;
+    color: #656565;
+}
 .item-home{
     margin-left: 20px;
 }
@@ -156,8 +164,9 @@ aside{
     margin-left: 20px;
     font-family: 'SVN-Gotham', sans-serif;
     color: #323232;
-    min-width: 200px;
+    width: 15%;
 }
+
 #category-title{
     font-size: 20px;
     font-weight: bold;
@@ -174,7 +183,6 @@ aside{
     color: #3498db;
     text-decoration: none;
 }
-/* Màu cho từng category khi active */
 .category-block.active[data-category="ao"] .category-link {
     color: #3498db; 
     border-left: 2px solid #3498db;
@@ -188,4 +196,35 @@ aside{
 .category-block.active[data-category="phu-kien"] .category-link {
     color: #3498db; 
     border-left: 2px solid #3498db;
+}
+
+
+card.product-card {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.card.product-card .image-container {
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.product-card .image-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card.product-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
 }

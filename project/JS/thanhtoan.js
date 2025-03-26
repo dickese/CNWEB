@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalProduct = 0;
         let totalPrice = 0;
 
-        tbody.innerHTML = ""; // Xóa nội dung cũ trong bảng
+        tbody.innerHTML = ""; 
 
         cart.forEach((item, index) => {
             const { name, price, quantity, img } = item;
             const totalItemPrice = price * quantity;
 
-            totalProduct += quantity; // Cộng tổng số lượng sản phẩm
-            totalPrice += totalItemPrice; // Cộng tổng giá tiền
+            totalProduct += quantity; 
+            totalPrice += totalItemPrice; 
 
             const row = `
                 <tr>
@@ -40,11 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
             tbody.innerHTML += row;
         });
 
-        // Cập nhật tổng số lượng sản phẩm hiển thị trong tiêu đề
         totalProductElement.textContent = totalProduct;
         totalPriceElement.textContent = totalPrice.toLocaleString() + " ₫";
 
-        // Thành tiền = Tổng tiền + phí vận chuyển cố định 30,000 ₫
         const shippingFee = 30000;
         const finalPrice = totalPrice + shippingFee;
         finalPriceElement.textContent = finalPrice.toLocaleString() + " ₫";
