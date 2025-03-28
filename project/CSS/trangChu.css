@@ -1,0 +1,102 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #2f3a38;
+    line-height: 1.6;
+}
+
+.bg-light-green {
+    background-color: #e4e8e3;
+}
+
+/*Card 1*/
+.card1 {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.card1 img {
+    transition: transform 0.5s;
+}
+
+.card1:hover img {
+    transform: scale(1.25);
+}
+
+.card1 .position-absolute {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    width: 100%;
+    padding: 20px; 
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+
+/*Card 2*/
+.card2 {
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.card2:hover {
+    transform: translateY(-10px);
+}
+
+.card2 .position-relative {
+    overflow: hidden;
+}
+
+/* Product Actions */
+.card2 .product-actions {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+.card2:hover .product-actions {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*Price*/
+.product-price {
+    font-weight: 500;
+    color: #2f3a38;
+}
+
+/*Special Deal Title*/
+.special-deal-title {
+    font-size: 40px;
+    font-weight: 300;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/*Buttons*/
+.btn-outline-dark {
+    border-width: 1px;
+    font-weight: 500;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2f3a38;
+    color: white;
+}
+
+.btn-outline-light {
+    border-width: 1px;
+    font-weight: 500;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #2f3a38;
+}
