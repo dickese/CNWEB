@@ -26,12 +26,12 @@ function renderProductDetail(product) {
     }
     renderRelatedProducts(product);
 }
-let selectedSize = ""; // Lưu trữ size được chọn
+let selectedSize = ""; 
 
 $(document).on("click", ".size-button", function () {
-    $(".size-button").removeClass("selected"); // Bỏ chọn size cũ
-    $(this).addClass("selected"); // Đánh dấu size mới được chọn
-    selectedSize = $(this).data("size"); // Lấy giá trị size
+    $(".size-button").removeClass("selected"); 
+    $(this).addClass("selected"); 
+    selectedSize = $(this).data("size"); 
 });
 
 function renderRelatedProducts(product) {
