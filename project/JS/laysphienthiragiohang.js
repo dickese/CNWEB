@@ -60,10 +60,9 @@ function updateQuantity(index, change) {
 }
         
 function removeItem(index) {
-    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?")) {
         cart.splice(index, 1);
         saveCartAndRender();
-    }
+    
 }
         
 function saveCartAndRender() {
