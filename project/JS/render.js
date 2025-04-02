@@ -2,8 +2,6 @@ function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
-
-
 const itemsPerPage = 6
 let currentPage = 1
 let defaultProducts = products;

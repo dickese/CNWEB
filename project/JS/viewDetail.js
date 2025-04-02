@@ -59,7 +59,7 @@ function renderRelatedProducts(product) {
 
 
 
- $(document).ready(function () {
+$(document).ready(function () {
     const productId = localStorage.getItem("id")
     const product = products.find(p => p.id === productId)
     console.log(product)
@@ -68,26 +68,33 @@ function renderRelatedProducts(product) {
         const newSrc = $(this).attr("src");
         $("#product-image").attr("src", newSrc);
     });
-     $(document).on("mousemove", "#product-image", function (e) {
-    const image = $(this);
-    const offsetX = e.offsetX; 
-    const offsetY = e.offsetY; 
-    const width = image.width();
-    const height = image.height();
+    
+    $(document).on("mousemove", "#product-image", function (e) {
+        const image = $(this);
+        const offsetX = e.offsetX; 
+        const offsetY = e.offsetY; 
+        const width = image.width();
+        const height = image.height();
 
-    const posX = (offsetX / width) * 100; 
-    const posY = (offsetY / height) * 100;
+        const posX = (offsetX / width) * 100; 
+        const posY = (offsetY / height) * 100;
 
-    image.css({
-        "transform-origin": `${posX}% ${posY}%`, 
-        "transform": "scale(2)",
+        image.css({
+            "transform-origin": `${posX}% ${posY}%`, 
+            "transform": "scale(2)",
+        });
     });
-});
 
     $(document).on("mouseleave", "#product-image", function () {
-    $(this).css({
-        "transform": "scale(1)", 
-        "transform-origin": "center center", 
+        $(this).css({
+            "transform": "scale(1)", 
+            "transform-origin": "center center", 
+        });
     });
-});
+    $(document).on("click", ".view-details", function (event) {
+        event.preventDefault();
+        let productId = $(this).data("id");
+        localStorage.setItem("id", productId)
+        window.location.href = `./ChiTietSanPham.html?id=${productId}`;
+    });
 });
