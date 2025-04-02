@@ -10,7 +10,15 @@ function addToCart() {
     }
 
     if (!selectedSize && product.sizes && product.sizes.length > 0) {
-        alert("Vui lòng chọn kích thước trước khi thêm vào giỏ hàng!");
+        document.getElementById("errorMessage").innerHTML = "";
+        document.getElementById("errorMessage").style.display = "none"; 
+        document.getElementById("errorModal").style.display = "flex";
+        document.querySelector("#errorModal .close").addEventListener("click", function () {
+            closeModal("errorModal");
+        });
+        document.getElementById("closeErrorModalBtn").addEventListener("click", function () {
+            closeModal("errorModal");
+        });
         return;
     }
 
@@ -34,7 +42,18 @@ function addToCart() {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Sản phẩm đã được thêm vào giỏ hàng!");
+    document.getElementById("successModal").style.display = "flex";
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+    
+    document.querySelector("#successModal .close").addEventListener("click", function () {
+        closeModal("successModal");
+    });
+    document.getElementById("closeSuccessModalBtn").addEventListener("click", function () {
+        closeModal("successModal");
+    });
 }
 
 document.querySelector(".btn-add-to-cart").addEventListener("click", addToCart);
