@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     function renderCart() {
         const tbody = document.querySelector("tbody");
         const totalProductElement = document.querySelector(".total-product");
@@ -9,32 +10,25 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalProduct = 0;
         let totalPrice = 0;
 
-        tbody.innerHTML = ""; 
+        tbody.innerHTML = "";
 
-        cart.forEach((item, index) => {
-            const { name, price, quantity, img } = item;
-            const totalItemPrice = price * quantity;
-
-            totalProduct += quantity; 
-            totalPrice += totalItemPrice; 
+        cart.forEach((item) => {
+            totalProduct += item.quantity;
+            totalPrice += item.price * item.quantity;
 
             const row = `
                 <tr>
                     <td class="text-start d-flex align-items-center">
-                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3 ">
-                        <div class="ffff">
+                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+                        <div>
                             <div>${item.name}</div>
                             <div>Size: ${item.size}</div>
                             <div>Màu: ${item.color}</div>
                         </div>
                     </td>
-                    <td class="text-center">
-                        <span class="spanquantity">${item.quantity}</span>
-                    </td>
+                    <td class="text-center">${item.quantity}</td>
                     <td class="text-end">${item.price.toLocaleString()} đ</td>
                     <td class="text-end">${(item.price * item.quantity).toLocaleString()} đ</td>
-                    <td class="text-end">
-                    </td>
                 </tr>
             `;
             tbody.innerHTML += row;
@@ -46,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const shippingFee = 30000;
         const finalPrice = totalPrice + shippingFee;
         finalPriceElement.textContent = finalPrice.toLocaleString() + " ₫";
-
     }
 
     renderCart();
@@ -57,32 +50,38 @@ document.addEventListener("DOMContentLoaded", function () {
         let phone = document.getElementById("phone").value;
         let city = document.getElementById("city").value;
         let district = document.getElementById("district").value;
-        let address = document.getElementById("address").value;
         let ward = document.getElementById("ward").value;
-        let shipping = document.querySelector("input[name='shipping']:checked");
+        let address = document.getElementById("address").value;
         let payment = document.querySelector("input[name='payment']:checked");
-    
-        let missingFields = [];
-    
-        if (!email) missingFields.push("Địa chỉ email");
-        if (!name) missingFields.push("Họ và tên");
-        if (!phone) missingFields.push("Số điện thoại");
-        if (!city) missingFields.push("Tỉnh/Thành phố");
-        if (!district) missingFields.push("Quận/Huyện");
-        if (!ward) missingFields.push("Phường/Xã");
-        if (!address) missingFields.push("Địa chỉ đường");
-        if (!shipping) missingFields.push("Phương thức vận chuyển");
-        if (!payment) missingFields.push("Phương thức thanh toán");
-    
-        if (missingFields.length > 0) {
-            alert("Vui lòng điền đầy đủ thông tin:\n" + missingFields.join(", "));
+
+        if (!email || !name || !phone || !city || !district || !ward || !address || !payment) {
+            document.getElementById("errorMessage").innerHTML = "";
+            document.getElementById("errorMessage").style.display = "none"; 
+            document.getElementById("errorModal").style.display = "flex";
         } else {
-            alert("Đặt hàng thành công");
-            localStorage.removeItem("cart");
-            window.location.href = "Trangchu.html";
+            document.getElementById("successModal").style.display = "flex";
         }
     });
-});
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    document.querySelector("#errorModal .close").addEventListener("click", function () {
+        closeModal("errorModal");
+    });
+    document.getElementById("closeErrorModalBtn").addEventListener("click", function () {
+        closeModal("errorModal");
+    });
+    
+    document.querySelector("#successModal .close").addEventListener("click", function () {
+        closeModal("successModal");
+    });
+    document.getElementById("closeSuccessModalBtn").addEventListener("click", function () {
+        closeModal("successModal");
+    });
+}); 
+
 const districts = {
     hanoi: { 
         "Ba Đình": ["Phúc Xá", "Trúc Bạch", "Vĩnh Phúc"], 

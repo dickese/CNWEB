@@ -11,9 +11,15 @@
     <link rel="stylesheet" href="../CSS/header footer.css">
     <link rel="stylesheet" href="../CSS/tuongthich.css">
     <!-- link icon -->
+    <link rel="stylesheet" href="../CSS/login_request.css">
+    <script src="/JS/jquery-3.4.1.min.js"></script>
+    <script src="/JS/bootstrap.js"></script>
+    <script src="../JS/login_request.js"></script>
+    <!-- link icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon web -->
     <link rel="icon" href="/IMG/favicon.png">
 </head>
 
@@ -109,7 +115,7 @@
                         </div>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="Dangnhap.html">Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="Dangky.html">Đăng ký</a></li>
+                            <!-- <li><a class="dropdown-item" href="Dangky.html">Đăng ký</a></li> -->
                             <!-- <li><a class="dropdown-item" href="Thongtintaikhoan.html">Thông tin tài khoản</a></li> -->
                             <!-- <li><a href="" class="dropdown-item">Lịch sử giao dịch</a></li> -->
                             <li><a class="dropdown-item" href="Giohang.html">Giỏ hàng</a></li>
@@ -125,11 +131,89 @@
             </div>
         </div>
     </nav>
-    <main>
-        <div class="container">
-            Đăng nhập
+    <div class="body">
+        <div class="containerr">
+            <div class="box">
+                <div class="form sign_in">
+                    <h3>Sign In</h3>
+                    <span>or use your account</span>
+    
+                    <form action="#" id="form_input">
+                        <div class="type">
+                            <input type="email" placeholder="Email" name="" id="email">
+    
+                        </div>
+                        <div class="type">
+                            <input type="password" placeholder="Password" name="" id="password">
+    
+                        </div>
+    
+                        <div class="forgot">
+                            <span>Forgot your password?</span>
+                        </div>
+    
+                        <button class="btn bkg" >Sign In</button>
+                    </form>
+                </div>
+        
+                <div class="form sign_up">
+                    <h3>Sign Up</h3>
+                    <span>or use your email for register</span>
+    
+                    <form action="#" id="form_input" >
+    
+                        <div class="type">
+                            <input type="text" name="" placeholder="UserName" id="UserName">
+                        </div>
+    
+                        <div class="type">
+    
+                            <input type="text" name="" placeholder="FullName" id="FullName">
+                        </div>
+                        <div class="type">
+                            
+                            <input type="email" name="" placeholder="Email" id="email">
+                        </div>
+                        <div class="type" style="display: flex;margin: 3px;">
+                            <input type="password" placeholder="Mật khẩu" id="password">
+                            <input type="password" placeholder="Nhập lại mật khẩu" id="confirm_password">
+                        </div>
+    
+                        <div class="type">
+                            <input type="text" placeholder="Số điện thoại" id="phone">
+                        </div>
+                        
+                        <div>
+                            <input type="checkbox" class="form-check-input" id="agreeTerms">
+    
+                            <label class="form-check-label" for="agreeTerms">Tôi đồng ý với <a href="#" class="text-black">chính sách</a></label>
+    
+                        </div>
+    
+                        <button class="btn bkg">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="overlay">
+                <div class="page page_signIn">
+                    <h3 style="color: black; font-weight: 900;">Welcome Back!</h3>
+                    <p style="color: black; font-weight: 900;">Nhập thông tin đi rồi tui cho cậu đăng kí nhe</p>
+    
+                    <button class="btn btnSign-in">Sign Up <i class="bi bi-arrow-right"></i></button>
+                </div>
+    
+                <div class="page page_signUp">
+                    <h3 style="color: black; font-weight: 900;">Hi Friend!</h3>
+                    <p style="color: black; font-weight: 900;">Vô mua đồ đi cậu</p>
+    
+                    <button class="btn btnSign-up">
+                        <i class="bi bi-arrow-left"></i> Sign In</button>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
+    
     <footer class="text-white" style="background:rgb(29, 24, 24);">
         <div class="container">
             <div class="row" id="footer-top">
@@ -175,9 +259,9 @@
                 <div class="col d-flex flex-column">
                     <h4>SẢN PHẨM</h4>
                     <ul id="product">
-                        <li><a class="text-decoration-none" href="Ao.html">Áo</a></li>
-                        <li><a class="text-decoration-none" href="Quan.html">Quần</a></li>
-                        <li><a class="text-decoration-none" href="Phukien.html">Phụ kiện</a></li>
+                        <li><a class="text-decoration-none" href="SanPham.html?category=ao">Áo</a></li>
+                        <li><a class="text-decoration-none" href="SanPham.html?category=quan">Quần</a></li>
+                        <li><a class="text-decoration-none" href="SanPham.html?category=phu-kien">Phụ kiện</a></li>
                     </ul>
                 </div>
                 <div class="col d-flex flex-column">

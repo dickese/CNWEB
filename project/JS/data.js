@@ -344,7 +344,65 @@ const products = [
     rating: 4.7,
     reviews: 120,
     type: "1"
-  }
+  },
+  {
+    id: "AR250140AT",
+    name: "Cà vạt đỏ đẹp quá trời",
+    price: 589000,
+    description: "Cà vạt",
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Đỏ"],
+    material: "Cotton Pha Spandex",
+    category: "phu-kien",
+    images: [
+      "../IMG/phukien/cavat/do/cv221522.webp",
+      "../IMG/phukien/cavat/do/cv221522_1_.webp",
+      "../IMG/phukien/cavat/do/cv221522_1_.webp",
+    ],
+    stock: 28,
+    rating: 4.7,
+    reviews: 120,
+    type: "day-nit"
+  },
+  {
+    id: "AR250140AD",
+    name: "Cà vạt xanh đẹp quá trời",
+    price: 589000,
+    description: "Cà vạt",
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Xanh"],
+    material: "Cotton Pha Spandex",
+    category: "phu-kien",
+    images: [
+      "../IMG/phukien/cavat/xanh/cv221503.webp",
+      "../IMG/phukien/cavat/xanh/cv221503_1_.webp",
+      "../IMG/phukien/cavat/xanh/cv221503_1_.webp",
+    ],
+    stock: 28,
+    rating: 4.7,
+    reviews: 120,
+    type: "day-nit"
+  },
+  {
+    id: "AR250140DD",
+    name: "Cà vạt đen đẹp quá trời",
+    price: 589000,
+    description: "Cà vạt",
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Đen"],
+    material: "Cotton Pha Spandex",
+    category: "phu-kien",
+    images: [
+      "../IMG/phukien/cavat/den/cv221504.webp",
+      "../IMG/phukien/cavat/den/cv221504_1_.webp",
+      "../IMG/phukien/cavat/den/cv221504_1_.webp",
+    ],
+    stock: 28,
+    rating: 4.7,
+    reviews: 120,
+    type: "day-nit",
+    discount: 20,
+  },
 ];
 
 const categoryList = {
