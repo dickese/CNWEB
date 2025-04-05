@@ -18,6 +18,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../IMG/favicon.png">
 
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
@@ -77,7 +78,8 @@
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ Kiện</a>
+                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ
+                                Kiện</a>
                             <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
                             </span>
                         </div>
@@ -134,12 +136,21 @@
         </ul>
     </div>
     <main>
-        <div class="">
+        <div class="container-fluid">
             <div class="banner">
                 <img src="" class="banner-image" alt="">
                 <div class="banner-category">
                     <h1 class="banner-title"></h1>
                     <p class="banner-desciption"></p>
+                </div>
+            </div>
+            <div>
+                <a href="#" id="filter-btn" style="text-decoration: none; color: #000;" onclick="toggleFilter(); return false;">
+                    Bộ Lọc <i class="fa-solid fa-filter fa-lg"></i> 
+                </a>
+                <div class="filter-dropdown" id="filter-dropdown">
+                    <h3 id="filter-category-title"></h3>
+                    <ul id="filter-category-list"></ul>
                 </div>
             </div>
             <div class="main-content d-flex p-0">
@@ -224,5 +235,6 @@
 </body>
 <script src="../JS/render.js"></script>
 <script src="../JS/animation.js"></script>
+<script></script>
 
 </html>
