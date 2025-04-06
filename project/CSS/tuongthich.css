@@ -1,0 +1,254 @@
+/* Layout linh hoạt theo kích thước màn hình */
+#footer-top{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mặc định 4 cột */
+    gap: 20px;
+}
+
+/* Kích thước chữ và icon hợp lý */
+footer h4 {
+    font-size: 1.2rem;
+}
+
+footer p, footer ul li {
+    font-size: 1rem;
+}
+
+#aboutus a i, footer i {
+    font-size: 1.2rem; /* Kích thước icon */
+}
+
+/* Điều chỉnh cho màn hình Tablet */
+@media (max-width: 1024px) {
+    #footer-top {
+        grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+    }
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-item i {
+        font-size: 0.9rem;
+    }
+    .nav-item{
+        margin: 0 5px;
+    }
+    #search-form {
+        width: 200px;
+    }
+    .breadcumbs{
+        padding-left: 0;
+    }
+    
+    main {
+        padding: 0 10px;
+    }
+
+    .container-fluid {
+        padding: 0 5px;
+    }
+
+    .banner {
+        height: 200px; /* Thu nhỏ banner trên tablet */
+    }
+
+    .banner-category {
+        width: 50%;
+    }
+
+    .banner-title {
+        font-size: 1.8rem;
+    }
+
+    .banner-desciption {
+        font-size: 1rem;
+    }
+
+    .main-content {
+        padding: 10px 0;
+    }
+
+    aside {
+        width: 20%; /* Tăng chiều rộng aside trên tablet */
+    }
+
+    #products-container {
+        width: 80%;
+    }
+
+    .card.product-card {
+        height: 300px;
+    }
+
+    .card.product-card .image-container {
+        height: 200px;
+    }
+
+    .card-body h5 {
+        font-size: 0.9rem;
+    }
+
+    .card-body p {
+        font-size: 0.8rem;
+    }
+
+    .page-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+
+}
+
+/* Điều chỉnh cho màn hình Mobile */
+@media (max-width: 600px) {
+    #footer-top {
+        grid-template-columns: repeat(1, 1fr); /* Chuyển thành 1 cột */
+    }
+
+    footer h4 {
+        font-size: 1rem;
+    }
+
+    footer p, footer ul li {
+        font-size: 0.9rem;
+    }
+
+    #aboutus a i, footer i {
+        font-size: 1rem !important; /* Giảm kích thước icon */
+    }
+
+    #footer-bottom{
+        font-size: 0.5rem;
+        text-align: center; /* Căn giữa copyright */
+    }
+    .navbar {
+        padding: 5px 0;
+    }
+
+    .navbar-toggler {
+        font-size: 1rem; /* Thu nhỏ nút mở menu */
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .navbar-nav .nav-item i {
+        font-size: 0.9rem;
+    }
+
+    #search-form {
+        width: 100%;
+    }
+    .breadcumbs{
+        padding-left: 0;
+    }
+
+    /* /////////////////////////// */
+
+    main {
+        padding: 0 5px;
+    }
+
+    #products-container {
+        width: 90%; /* Giảm chiều rộng để tạo khoảng trống hai bên */
+        padding: 0;
+        margin: 0 auto; /* Canh giữa */
+    }
+
+    .container-fluid {
+        padding: 0 5px;
+    }
+
+    .banner {
+        height: 100px; /* Thu nhỏ banner trên mobile */
+    }
+
+    .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .banner-category {
+        top: 15px;
+        left: 15px;
+        transform: none;
+        text-align: left;
+        width: 70%;
+    }
+
+    .banner-title {
+        font-size: 1rem; /* Font nhỏ hơn trên mobile */
+    }
+
+    .banner-desciption {
+        font-size: 0.7rem; /* Font nhỏ hơn trên mobile */
+        margin: 3px 0 0;
+    }
+
+    .main-content {
+        flex-direction: column;
+        padding: 8px 0;
+    }
+
+    aside {
+        display: none; /* Ẩn aside trên mobile */
+    }
+
+    #filter-btn {
+        display: block; /* Hiển thị nút bộ lọc trên mobile */
+    }
+
+    .filter-dropdown.active {
+        display: block; /* Hiển thị dropdown khi nhấn nút */
+    }
+
+    #products-container .col-md-4 {
+        width: 50%; /* 2 cột trên mobile */
+        flex: 0 0 50%; /* Đảm bảo chiếm 50% chiều rộng */
+        max-width: 50%; /* Đảm bảo không vượt quá 50% */
+        padding: 0 5px; /* Khoảng cách giữa các cột */
+    }
+
+    .card.product-card {
+        height: 200px; /* Thu nhỏ card trên mobile */
+        margin: 5px 0; /* Khoảng cách giữa các card */
+    }
+
+    .card.product-card .image-container {
+        height: 120px; /* Thu nhỏ hình ảnh */
+    }
+
+    .card-body {
+        padding: 5px;
+    }
+
+    .card-body h5 {
+        font-size: 0.7rem;
+    }
+
+    .card-body p {
+        font-size: 0.6rem;
+    }
+
+    .pagination {
+        margin: 10px 0;
+    }
+
+    .page-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+
+}
+

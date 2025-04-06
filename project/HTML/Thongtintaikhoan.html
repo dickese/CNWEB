@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scam Shop</title>
-    <link rel="stylesheet" href="../CSS/bootstrap.css" />
+    <title>Thông tin tài khoản</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
     <script src="../JS/jquery-3.4.1.min.js"></script>
     <script src="../JS/bootstrap.js"></script>
-    <script src="../JS/user.js"></script>
+    <script src="../JS/thongtintaikhoan.js"></script>
+    <link rel="stylesheet" href="../CSS/header footer.css">
     <link rel="stylesheet" href="../CSS/tuongthich.css">
-    <link rel="stylesheet" href="../CSS/header footer.css" />
-    <link rel="stylesheet" href="../CSS/thanhtoan.css">
-    <link rel="stylesheet" href="../CSS/page.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
+    <link rel="stylesheet" href="../CSS/thongtintaikhoan.css">
+    <script src="../JS/user.js"></script>
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon web -->
+    <link rel="icon" href="../IMG/favicon.png">
+</head>
 
-  <body>
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
             <div id="scamshop">
@@ -80,7 +80,8 @@
                     </li>
                     <li class="nav-item dropdown">
                         <div class="d-flex">
-                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ Kiện</a>
+                            <a class="nav-link" href="SanPham.html?category=phu-kien" data-category="phu-kien">Phụ
+                                Kiện</a>
                             <span class="nav-link dropdown-toggle pl-0 pr-0 category-parent" data-bs-toggle="dropdown">
                             </span>
                         </div>
@@ -89,7 +90,8 @@
                                     data-subcategory="mu">Mũ</a></li>
                             <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=tui-xach"
                                     data-subcategory="tui-xach">Túi xách</a></li>
-                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=ca-vat" data-subcategory="giay">Cà vạt</a></li>
+                            <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=giay"
+                                    data-subcategory="giay">Giày</a></li>
                             <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=day-nit"
                                     data-subcategory="day-nit">Dây nịt</a></li>
                             <li><a class="dropdown-item item" href="SanPham.html?category=phu-kien&type=vi"
@@ -126,151 +128,98 @@
             </div>
         </div>
     </nav>
-    <div class="breadcumbs">
-        <ul class="items">
-            <li class="item-home"><a href="./Trangchu.html" class="text-decoration-none">Trang chủ</a>
-            </li>
-            <li><a href="Giohang.html" id="sub">Giỏ hàng</a></li>
-            <li id="thanhtoan">Thanh toán</li>
-        </ul>
-    </div>
-    <main>
-        <div class="container-fluid my-5">
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="form-section">
-                        <form>
-                            <h5>1. Địa chỉ giao hàng</h5>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Địa chỉ email</label>
-                                <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
-                                <div id="email-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
-                                <div id="name-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại">
-                                <div id="phone-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="city" class="form-label">Tỉnh/Thành phố</label><br>
-                                <select id="city" class="form-select">
-                                    <option value="" selected>Vui lòng chọn Tỉnh/Thành phố</option>
-                                    <option value="hanoi">TP. Hà Nội</option>
-                                    <option value="hochiminh">TP. Hồ Chí Minh</option>
-                                    <option value="dongnai">Đồng Nai</option>
-                                </select>
-                                <div id="city-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="district" class="form-label">Quận/Huyện</label><br>
-                                <select id="district" class="form-select">
-                                    <option value="" selected>Vui lòng chọn Quận/Huyện</option>
-                                </select>
-                                <div id="district-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Địa chỉ đường</label>
-                                <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ">
-                                <div id="address-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="ward" class="form-label">Phường/Xã</label><br>
-                                <select id="ward" class="form-select">
-                                    <option value="" selected>Vui lòng chọn Phường/Xã</option>
-                                </select>
-                                <div id="ward-error" class="form-text text-danger"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="note" class="form-label">Ghi chú</label>
-                                <textarea class="form-control" id="note" rows="3" placeholder="Ghi chú"></textarea>
-                            </div>
-                            <h5 class="titleborder">2. Vận chuyển</h5>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="shipping" id="standardShipping" checked>
-                                <label class="form-check-label" for="standardShipping">
-                                    GHN - Tiêu chuẩn - Tính phí: <strong>30,000 ₫</strong>
-                                </label>
-                            </div>
-                            <h5 class="titleborder">3. Phương thức thanh toán</h5>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="payment" id="cashPayment" checked>
-                                <label class="form-check-label" for="cashPayment">Thanh toán khi nhận hàng</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="payment" id="onlinePayment">
-                                <label class="form-check-label" for="onlinePayment">
-                                    Thanh toán thẻ VNPay (ATM, VISA, Mastercard...)
-                                </label>
-                            </div>
-                            <h5 class="titleborder">4. Áp dụng mã giảm giá</h5>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
-                                <button class="btn btn-warning" type="button">Sử dụng</button>
-                            </div>
-                            <h5 class="titleborder">Xuất hóa đơn công ty</h5>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="invoice">
-                                <label class="form-check-label" for="invoice">Xuất hóa đơn công ty</label>
-                            </div>
-                            <input type="button" value="ĐẶT HÀNG" class="btn btn-secondary w-100">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-6 summary-section">
-                    <h5>Thông tin đơn hàng (<span class="total-product">1</span>)</h5>
-                    <table class="table align-middle">
-                        <thead class="thead">
-                            <tr>
-                                <th class="text-start text-uppercase">Sản phẩm</th>
-                                <th class="text-center text-uppercase">Số lượng</th>
-                                <th class="text-end text-uppercase">Giá</th>
-                                <th class="text-end text-uppercase">Tổng tiền</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <strong>Tổng tiền:</strong>
-                        <span class="total-price">0 ₫</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <strong>Vận chuyển:</strong>
-                        <span>30,000 ₫</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between bg-light">
-                        <strong>Thành tiền:</strong>
-                        <strong class="final-price">0 ₫</strong>
-                    </li>
-                </div>
+    <div class="container mt-5 mb-5">
+        <h2 class="title">THÔNG TIN TÀI KHOẢN</h2>
+        <div class="account-info">
+            <div class="info-row">
+                <span class="label">Tên đăng nhập</span>
+                <span class="value" id="username"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Họ và tên:</span>
+                <span class="value" id="fullName"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Email</span>
+                <span class="value" id="email"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Nhóm</span>
+                <span class="value" id="group"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Điện thoại:</span>
+                <span class="value" id="telephone"></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Xác thực email:</span>
+                <span class="value">
+                    <button class="btn btn-danger btn-sm">Xác thực</button>
+                </span>
+            </div>
+            <div class="info-row">
+                <span class="label">Xác thực giấy tờ:</span>
+                <span class="value">
+                    <button class="btn btn-danger btn-sm">Xác thực</button>
+                </span>
+            </div>
+            <div class="info-row">
+                <span class="label">Ngày đăng ký:</span>
+                <span class="value" id="registerDate"></span>
+            </div>
+            <div class="action-buttons mt-4">
+                <button class="btn btn-success" id="editInfoBtn">Sửa thông tin</button>
+                <button class="btn btn-secondary" id="changePasswordBtn">Đổi mật khẩu</button>
             </div>
         </div>
-    </main>
-    <div id="successModal" class="modal">
+    </div>
+    <div id="editInfoModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <i class="fas fa-check-circle success-icon"></i>
-            <h2>Đặt hàng thành công!</h2>
-            <button id="closeSuccessModalBtn" class="btn-secondary">OK</button>
+            <span class="close">×</span>
+            <h2>Sửa Thông Tin</h2>
+            <form id="editInfoForm">
+                <div class="form-group">
+                    <label for="editUsername">Tên đăng nhập:</label>
+                    <input type="text" id="editUsername" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="editFullName">Họ và tên:</label>
+                    <input type="text" id="editFullName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">Điện thoại:</label>
+                    <input type="text" id="editPhone" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">OK</button>
+            </form>
         </div>
     </div>
-    
-    <div id="errorModal" class="modal">
+    <div id="changePasswordModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <i class="fas fa-times-circle error-icon"></i>
-            <h2>Thiếu thông tin!</h2>
-            <p id="errorMessage"></p>
-            <button id="closeErrorModalBtn" class="btn-secondary">OK</button>
+            <span class="close">×</span>
+            <h2>Đổi Mật Khẩu</h2>
+            <form id="changePasswordForm">
+                <div class="form-group">
+                    <label for="oldPassword">Mật khẩu cũ:</label>
+                    <input type="password" id="oldPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Mật khẩu mới:</label>
+                    <input type="password" id="newPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmNewPassword">Xác nhận mật khẩu mới:</label>
+                    <input type="password" id="confirmNewPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">OK</button>
+            </form>
         </div>
     </div>
-    
+
     <footer class="text-white" style="background:rgb(29, 24, 24);">
         <div class="container">
             <div class="row" id="footer-top">
@@ -340,6 +289,6 @@
             </div>
         </div>
     </footer>
-    <script src="../JS/thanhtoan.js"></script>
-  </body>
+</body>
+
 </html>

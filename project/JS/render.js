@@ -77,15 +77,6 @@ function filterProducts(category, type) {
     }
 }
 
-function onChange() {
-    const category = getQueryParam("category");
-    const type = getQueryParam("type");
-    loadSubPage(category)
-    loadBanner(category)
-    loadCategoryList(category);
-    renderProductsPage(1, filterProducts(category, type))
-}
-
 function loadSubPage(category) {
     let subPage;
     if (category === "ao") {
@@ -107,21 +98,6 @@ function loadBanner(category) {
     $(".banner-desciption").text(banner.description)
 }
 
-// function loadCategoryList(category) {
-//     const categoryTitle = document.getElementById("category-title");
-//     const categoryListContainer = document.getElementById("category-list");
-
-//     categoryListContainer.innerHTML = "";
-
-//     if (categoryList[category]) {
-//         categoryTitle.textContent = `${category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện"}`;
-//         categoryList[category].forEach(subcategory => {
-//             const listItem = document.createElement("li");
-//             listItem.innerHTML = `<a href="SanPham.html?category=${category}&type=${subcategory.type}">${subcategory.name}</a>`;
-//             categoryListContainer.appendChild(listItem);
-//         });
-//     }
-// }
 function loadCategoryList(selectedCategory) {
     const categoryTitle = document.getElementById("category-title");
     const categoryListContainer = document.getElementById("category-list");
@@ -157,10 +133,47 @@ function loadCategoryList(selectedCategory) {
     });
 }
 
+function loadFilterCategoryList(selectedCategory) {
+    // Lấy các phần tử trong div.filter-dropdown (mobile)
+    const filterCategoryTitle = document.getElementById("filter-category-title");
+    const filterCategoryListContainer = document.getElementById("filter-category-list");
+
+    // Cập nhật tiêu đề và xóa nội dung cũ
+    if (filterCategoryTitle) filterCategoryTitle.textContent = "Bộ sưu tập";
+    if (filterCategoryListContainer) filterCategoryListContainer.innerHTML = "";
+
+    // Tạo danh sách danh mục
+    Object.keys(categoryList).forEach(category => {
+        const categoryBlock = document.createElement("div");
+        categoryBlock.classList.add("category-block");
+        categoryBlock.setAttribute("data-category", category);
+
+        if (category === selectedCategory) {
+            categoryBlock.classList.add("active");
+        }
+
+        const categoryName = category === "ao" ? "Áo" : category === "quan" ? "Quần" : "Phụ kiện";
+        const categoryLink = document.createElement("a");
+        categoryLink.classList.add("category-link");
+        categoryLink.href = `SanPham.html?category=${category}`;
+        categoryLink.textContent = categoryName;
+        categoryBlock.appendChild(categoryLink);
+
+        const subCategoryList = document.createElement("ul");
+        categoryList[category].forEach(subcategory => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<a href="SanPham.html?category=${category}&type=${subcategory.type}">${subcategory.name}</a>`;
+            subCategoryList.appendChild(listItem);
+        });
+
+        categoryBlock.appendChild(subCategoryList);
+        if (filterCategoryListContainer) filterCategoryListContainer.appendChild(categoryBlock);
+    });
+}
+
 ////////////////////////////////////////
 $(document).ready(function () {
     onChange();
-
     $(document).on("click", ".dropdown-item", function (event) {
         event.preventDefault();
 
@@ -180,3 +193,28 @@ $(document).ready(function () {
     });
 
 });
+
+function toggleFilter() {
+    const dropdown = document.getElementById('filter-dropdown');
+    dropdown.classList.toggle('active');
+}
+
+// Đóng dropdown khi nhấn ra ngoài
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('filter-dropdown');
+    const filterBtn = document.querySelector('.filter-btn');
+    if (!dropdown.contains(event.target) && !filterBtn.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
+function onChange() {
+    const category = getQueryParam("category");
+    const type = getQueryParam("type");
+    loadSubPage(category);
+    loadBanner(category);
+    loadCategoryList(category);
+    console.log("Calling loadFilterCategoryList with category:", category);
+    loadFilterCategoryList(category);
+    renderProductsPage(1, filterProducts(category, type));
+}
