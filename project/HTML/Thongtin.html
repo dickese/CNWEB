@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scam Shop | Thông tin</title>
     <link rel="stylesheet" href="../CSS/header footer.css">
     <link rel="stylesheet" href="../CSS/bootstrap.css">
     <script src="../JS/jquery-3.4.1.min.js"></script>
     <script src="../JS/bootstrap.js"></script>
+    <script src="../JS/user.js"></script>
     <link rel="stylesheet" href="../CSS/thongtin.css">
     <link rel="stylesheet" href="../CSS/page.css">
     <link rel="stylesheet" href="../CSS/tuongthich.css">
@@ -110,19 +111,17 @@
                     </form>
                     <li class="nav-item mr-3 dropdown">
                         <div class="d-flex">
-                            <a href="Dangnhap.html" class="nav-link">
+                            <a href="Dangnhap.html" class="nav-link" id="user-icon">
                                 <i class="fa-solid fa-user "></i>
                             </a>
                             <span class="nav-link dropdown-toggle pl-0 pr-0" data-bs-toggle="dropdown">
                             </span>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Dangnhap.html">Đăng nhập</a></li>
-                            <!-- <li><a class="dropdown-item" href="Dangky.html">Đăng ký</a></li> -->
-                            <!-- <li><a class="dropdown-item" href="Thongtintaikhoan.html">Thông tin tài khoản</a></li> -->
-                            <!-- <li><a href="" class="dropdown-item">Lịch sử giao dịch</a></li> -->
+                            <li><a class="dropdown-item" href="" id="user-link"></a></li>
+                            <li><a class="dropdown-item" href="Dangnhap.html" id="login-link">Đăng nhập</a></li>
                             <li><a class="dropdown-item" href="Giohang.html">Giỏ hàng</a></li>
-                            <li><a class="dropdown-item" href="Trangchu.html">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="Trangchu.html" id="logout-link">Đăng xuất</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

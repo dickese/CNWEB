@@ -174,7 +174,6 @@ function loadFilterCategoryList(selectedCategory) {
 ////////////////////////////////////////
 $(document).ready(function () {
     onChange();
-
     $(document).on("click", ".dropdown-item", function (event) {
         event.preventDefault();
 
