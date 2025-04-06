@@ -80,10 +80,16 @@ function filterProducts(category, type) {
 function onChange() {
     const category = getQueryParam("category");
     const type = getQueryParam("type");
-    loadSubPage(category)
-    loadBanner(category)
+
+    if (!category) {
+        renderProductsPage(1, defaultProducts);
+        return;
+    }
+
+    loadSubPage(category);
+    loadBanner(category);
     loadCategoryList(category);
-    renderProductsPage(1, filterProducts(category, type))
+    renderProductsPage(1, filterProducts(category, type));
 }
 
 function loadSubPage(category) {
