@@ -1,5 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // Kiểm tra đăng nhập
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    console.log("Logged in user in Thanhtoan.html:", loggedInUser);
+    if (!loggedInUser) {
+        alert("Vui lòng đăng nhập để thanh toán!");
+        window.location.href = "Dangnhap.html";
+        return;
+    }
+
+    // Lấy giỏ hàng của người dùng hiện tại
+    const cartKey = `cart_${loggedInUser}`;
+    console.log("Cart key in Thanhtoan.html:", cartKey);
+    let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    console.log("Cart data in Thanhtoan.html:", cart);
 
     function renderCart() {
         const tbody = document.querySelector("tbody");
@@ -7,14 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalPriceElement = document.querySelector(".total-price");
         const finalPriceElement = document.querySelector(".final-price");
 
+        if (!tbody || !totalProductElement || !totalPriceElement || !finalPriceElement) {
+            console.error("Không tìm thấy một hoặc nhiều phần tử cần thiết trong DOM!");
+            return;
+        }
+
         let totalProduct = 0;
         let totalPrice = 0;
 
         tbody.innerHTML = "";
 
         cart.forEach((item) => {
+            const price = parseInt(item.price.replace(/[^0-9]/g, ""), 10);
             totalProduct += item.quantity;
-            totalPrice += item.price * item.quantity;
+            totalPrice += price * item.quantity;
 
             const row = `
                 <tr>
@@ -27,19 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </td>
                     <td class="text-center">${item.quantity}</td>
-                    <td class="text-end">${item.price.toLocaleString()} đ</td>
-                    <td class="text-end">${(item.price * item.quantity).toLocaleString()} đ</td>
+                    <td class="text-end">${item.price}</td>
+                    <td class="text-end">${(price * item.quantity).toLocaleString("vi-VN")} đ</td>
                 </tr>
             `;
             tbody.innerHTML += row;
         });
 
         totalProductElement.textContent = totalProduct;
-        totalPriceElement.textContent = totalPrice.toLocaleString() + " ₫";
+        totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN") + " ₫";
 
         const shippingFee = 30000;
         const finalPrice = totalPrice + shippingFee;
-        finalPriceElement.textContent = finalPrice.toLocaleString() + " ₫";
+        finalPriceElement.textContent = finalPrice.toLocaleString("vi-VN") + " ₫";
     }
 
     renderCart();
@@ -63,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^(09|03|07|06|05|04)\d{8}$/;
-    const nameRegex = /^[A-Z][a-z]+(\s[A-Z][a-z]+)+$/;
+    const nameRegex = /^[A-ZÀ-ỹ][a-zà-ỹ]+(\s[A-ZÀ-ỹ][a-zà-ỹ]+)+$/;
 
     function validateEmail() {
         if (!emailInput.value.trim()) {
@@ -152,7 +171,13 @@ document.addEventListener("DOMContentLoaded", function () {
     wardSelect.addEventListener("change", validateWard);
     addressInput.addEventListener("input", validateAddress);
 
-    orderButton.addEventListener("click", function () {
+
+    document.getElementById("errorModal").style.display = "none";
+    document.getElementById("successModal").style.display = "none";
+
+    orderButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
         const isEmailValid = validateEmail();
         const isNameValid = validateName();
         const isPhoneValid = validatePhone();
@@ -173,6 +198,24 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorMessage").textContent = "Vui lòng kiểm tra lại thông tin đã nhập.";
             document.getElementById("errorModal").style.display = "flex";
         } else {
+            const order = {
+                user: loggedInUser,
+                email: emailInput.value.trim(),
+                name: nameInput.value.trim(),
+                phone: phoneInput.value.trim(),
+                address: `${addressInput.value.trim()}, ${wardSelect.value}, ${districtSelect.value}, ${citySelect.value}`,
+                payment: payment.value,
+                cart: cart,
+                total: parseInt(document.querySelector(".final-price").textContent.replace(/[^0-9]/g, ""), 10),
+                date: new Date().toISOString(),
+            };
+
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.push(order);
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            localStorage.removeItem(cartKey);
+
             document.getElementById("successModal").style.display = "flex";
         }
     });
@@ -190,9 +233,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector("#successModal .close").addEventListener("click", function () {
         closeModal("successModal");
+        window.location.href = "Trangchu.html";
     });
     document.getElementById("closeSuccessModalBtn").addEventListener("click", function () {
         closeModal("successModal");
+        window.location.href = "Trangchu.html";
     });
 });
 

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Lấy giỏ hàng của người dùng hiện tại
-    const cartKey = `cart_${loggedInUser}`; // Ví dụ: "cart_Admin"
+    const cartKey = `cart_${loggedInUser}`;
     console.log("Cart key in Giohang.html:", cartKey);
     let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     console.log("Cart data in Giohang.html:", cart);
@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </tr>`;
             document.getElementById("total-quantity").innerText = "0";
             document.getElementById("total-price").innerText = "0 đ";
+            // Ẩn nút "Đặt hàng" khi giỏ hàng trống
+            const checkoutLink = document.getElementById("checkout-link");
+            if (checkoutLink) {
+                checkoutLink.classList.add("hidden");
+            }
             return;
         }
 
@@ -35,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalPrice = 0;
 
         cart.forEach((item, index) => {
-            // Chuyển đổi giá từ chuỗi có định dạng (ví dụ: "589,000 đ") thành số
             const price = parseInt(item.price.replace(/[^0-9]/g, ""), 10);
             totalQuantity += item.quantity;
             totalPrice += price * item.quantity;
@@ -66,7 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("total-quantity").innerText = totalQuantity;
-        document.getElementById("total-price").innerText = totalPrice.toLocaleString("vi-VN") + " đ";
+        document.getElementById("total-price").innerText = totalPrice.toLocaleString("vi-VN");
+
+        // Hiển thị nút "Đặt hàng" khi giỏ hàng không trống
+        const checkoutLink = document.getElementById("checkout-link");
+        if (checkoutLink) {
+            checkoutLink.classList.remove("hidden");
+        }
     }
 
     window.updateQuantity = function (index, change) {
@@ -85,6 +95,32 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCart();
     }
 
-    // Hiển thị giỏ hàng ban đầu
     renderCart();
+
+    // Xử lý khi nhấn nút "Đặt hàng"
+    const checkgiohang = document.getElementById("checkgiohang");
+    if (checkgiohang) {
+        checkgiohang.addEventListener("click", function (event) {
+            if (cart.length === 0) {
+                event.preventDefault(); // Ngăn chuyển hướng mặc định
+                document.getElementById("emptyCartModal").style.display = "flex";
+            }
+            // Nếu giỏ hàng không trống, cho phép chuyển hướng bình thường (href="Thanhtoan.html")
+        });
+    }
+
+    // Đóng modal và chuyển hướng
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    document.querySelector("#emptyCartModal .close").addEventListener("click", function () {
+        closeModal("emptyCartModal");
+        window.location.href = "Trangchu.html";
+    });
+
+    document.getElementById("closeEmptyCartModalBtn").addEventListener("click", function () {
+        closeModal("emptyCartModal");
+        window.location.href = "Trangchu.html";
+    });
 });
