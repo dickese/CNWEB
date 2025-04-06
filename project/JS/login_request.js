@@ -50,47 +50,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // đăng ký
-    document.querySelector(".sign_up form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        let username = document.querySelector("#UserName").value.trim();
-        let fullname = document.querySelector("#FullName").value.trim();
-        let email = document.querySelector(".sign_up #email_register").value.trim();
-        let password = document.querySelector(".sign_up #password_register").value.trim();
-        let confirmPassword = document.querySelector("#confirm_password_register").value.trim();
-        let phone = document.querySelector("#phone").value.trim();
-        let agreeTerms = document.querySelector("#agreeTerms").checked;
+document.querySelector(".sign_up form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    let username = document.querySelector("#UserName").value.trim();
+    let fullname = document.querySelector("#FullName").value.trim();
+    let email = document.querySelector(".sign_up #email_register").value.trim();
+    let password = document.querySelector(".sign_up #password_register").value.trim();
+    let confirmPassword = document.querySelector("#confirm_password_register").value.trim();
+    let phone = document.querySelector("#phone").value.trim();
+    let agreeTerms = document.querySelector("#agreeTerms").checked;
 
-        if (!username || !fullname || !email || !password || !confirmPassword || !phone) {
-            alert("Vui lòng nhập đầy đủ thông tin đăng ký!");
-            return;
-        }
+    if (!username || !fullname || !email || !password || !confirmPassword || !phone) {
+        alert("Vui lòng nhập đầy đủ thông tin đăng ký!");
+        return;
+    }
 
-        if (password !== confirmPassword) {
-            alert("Mật khẩu nhập lại không khớp!");
-            return;
-        }
+    if (password !== confirmPassword) {
+        alert("Mật khẩu nhập lại không khớp!");
+        return;
+    }
 
-        if (!agreeTerms) {
-            alert("Bạn cần đồng ý với chính sách trước khi đăng ký!");
-            return;
-        }
+    if (!agreeTerms) {
+        alert("Bạn cần đồng ý với chính sách trước khi đăng ký!");
+        return;
+    }
 
-        const users = getUsersFromStorage();
+    const users = getUsersFromStorage();
 
-        if (users[email]) {
-            alert("Email đã được đăng ký. Vui lòng dùng email khác.");
-            return;
-        }
-        users[email] = {
-            username: username,
-            email: email,
-            password: password
-        };
-        saveUsersToStorage(users);
+    if (users[email]) {
+        alert("Email đã được đăng ký. Vui lòng dùng email khác.");
+        return;
+    }
 
-        alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
-        containerr.classList.remove("active");
-        document.querySelector(".sign_in #email_login").value = email;
-        document.querySelector(".sign_in #password_login").value = password;
-    });
+    users[email] = {
+        username: username,
+        fullname: fullname, 
+        email: email,
+        password: password,
+        phone: phone, 
+        registerDate: new Date().toLocaleString("vi-VN") 
+    };
+    saveUsersToStorage(users);
+
+    alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
+    containerr.classList.remove("active");
+    document.querySelector(".sign_in #email_login").value = email;
+    document.querySelector(".sign_in #password_login").value = password;
+});
 });
