@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-container {
+    flex: 1;
+    padding: 40px 20px;
+    background: linear-gradient(#0288d1, #4fc3f7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+}
+
+.members-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.member-card {
+    width: 210px;
+    background: #ede7e7cc;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.member-photo-container {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 20px 10px 25px;
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.member-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    font-size: 14px;
+    color: #1976d2;
+    margin-bottom: 10px;
+}
+
+.member-id {
+    display: inline-block;
+    background-color: #eeeeee;
+    color: #555;
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #0288d1;
+    color: white;
+    font-size: 14px;
+    opacity: 0.9;
+}
