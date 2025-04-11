@@ -229,7 +229,7 @@ function onChange() {
     loadSubPage(category);
     loadBanner(category);
     loadCategoryList(category);
-    console.log("Calling loadFilterCategoryList with category:", category);
+    // console.log("Calling loadFilterCategoryList with category:", category);
     loadFilterCategoryList(category);
     renderProductsPage(1, filterProducts(category, type));
 }
