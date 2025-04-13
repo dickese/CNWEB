@@ -76,3 +76,90 @@
 .linkxxx:hover {
     text-decoration: underline;
 }
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container2 {
+        width: 90%; /* Giảm từ 95% xuống 90% */
+        margin-top: 60px; /* Giảm từ 70px */
+        margin-left: 5%; /* Giảm từ auto để căn gọn hơn */
+    }
+
+    .sidebar {
+        width: 180px; /* Giảm từ 200px */
+    }
+
+    .nd {
+        padding: 0.3rem; /* Giảm padding từ 0.5rem */
+    }
+
+    .nd h3 {
+        font-size: 1.2rem; /* Giảm từ 1.3rem */
+    }
+
+    .nd h4 {
+        font-size: 0.9rem; /* Giảm từ 1rem */
+    }
+
+    .sidebar h4 {
+        font-size: 1rem; /* Giảm từ 1.1rem */
+    }
+
+    .warranty-img {
+        max-width: 400px; /* Giảm từ 450px */
+        margin: 0.6rem auto; /* Giảm từ 0.8rem */
+    }
+}
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    .container2 {
+        width: 95%; /* Giảm từ 100% */
+        margin-top: 50px; /* Giảm từ 60px */
+        margin-left: 20px; /* Căn gọn hơn */
+    }
+
+    .ctn {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .nd {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .sidebar h4 {
+        font-size: 0.9rem; /* Giảm từ 1rem */
+    }
+
+    .list-group li {
+        padding: 0.2rem 0; /* Giảm từ 0.3rem */
+    }
+
+    .linkxxx {
+        font-size: 0.8rem; /* Giảm từ 0.9rem */
+    }
+
+    .nd h3 {
+        font-size: 1.1rem; /* Giảm từ 1.2rem */
+        padding-top: 0.8rem; /* Giảm từ 1rem */
+    }
+
+    .nd h4 {
+        font-size: 0.8rem; /* Giảm từ 0.9rem */
+    }
+
+    .nd h5 {
+        font-size: 0.8rem; /* Giảm từ 0.85rem */
+    }
+
+    .warranty-img {
+        max-width: 250px; /* Giảm từ 300px */
+        margin: 0.3rem auto; /* Giảm từ 0.5rem */
+    }
+}

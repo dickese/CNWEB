@@ -204,7 +204,7 @@
     width: 330px;
     height: 48px;
     background-color: #EEEDEF;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 #form_input_register .type input {
@@ -226,4 +226,214 @@
 }
 .bkg {
     background-color: #FF4167;
+}
+
+/* Điều chỉnh cho màn hình máy tính nhỏ hơn (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .containerr {
+        max-width: 700px;
+        min-height: 450px;
+    }
+
+    #form_input_login .type,
+    #form_input_register .type {
+        max-width: 280px;
+        height: 40px;
+        margin: 15px 0;
+    }
+
+    #form_input_login .type input,
+    #form_input_register .type input {
+        font-size: 14px;
+    }
+
+    #form_input_register .type[style*="display: flex"] {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    #form_input_register .type[style*="display: flex"] input {
+        height: 40px;
+        width: 100%; /* Đảm bảo input đầy đủ chiều rộng */
+    }
+
+    .form h3 {
+        font-size: 2rem;
+    }
+
+    .form span {
+        font-size: 0.9rem;
+    }
+
+    .overlay .page h3 {
+        font-size: 2rem;
+        color: #fff; /* Ghi đè style nội tuyến */
+    }
+
+    .overlay .page p {
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .btn {
+        padding: 10px 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Điều chỉnh cho màn hình máy tính bảng (max-width: 768px) */
+@media (max-width: 768px) {
+    .containerr {
+        max-width: 600px;
+        min-height: 400px;
+    }
+
+    .containerr .box,
+    .containerr .overlay {
+        width: 50%;
+    }
+
+    #form_input_login .type,
+    #form_input_register .type {
+        max-width: 250px;
+        height: 38px;
+        margin: 12px 0;
+    }
+
+    #form_input_login .type input,
+    #form_input_register .type input {
+        font-size: 13px;
+    }
+
+    #form_input_register .type[style*="display: flex"] {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    #form_input_register .type[style*="display: flex"] input {
+        height: 38px;
+        width: 100%;
+    }
+
+    .form h3 {
+        font-size: 1.8rem;
+    }
+
+    .form span {
+        font-size: 0.8rem;
+    }
+
+    .overlay .page h3 {
+        font-size: 1.8rem;
+    }
+
+    .overlay .page p {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 8px 30px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Điều chỉnh cho màn hình điện thoại (max-width: 480px) */
+@media (max-width: 480px) {
+    .containerr {
+        transform: scale(0.8); /* Thu nhỏ 80% */
+        transform-origin: top center;
+        width: 90vw;
+        max-width: 360px;
+        min-height: 320px;
+    }
+
+    .containerr .box,
+    .containerr .overlay {
+        width: 50%;
+        min-height: 320px;
+    }
+
+    .containerr .overlay {
+        background-color: #f0f0f0;
+    }
+
+    #form_input_login .type,
+    #form_input_register .type {
+        max-width: 180px;
+        height: 32px;
+        margin: 8px 0;
+    }
+
+    #form_input_login .type input,
+    #form_input_register .type input {
+        font-size: 11px; /* Thu nhỏ chữ trong input */
+        padding: 0 8px;
+    }
+
+    #form_input_register .type[style*="display: flex"] {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    #form_input_register .type[style*="display: flex"] input {
+        height: 32px;
+        width: 100%;
+        font-size: 11px;
+        padding: 0 8px;
+    }
+
+    .form h3 {
+        font-size: 1.2rem;
+    }
+
+    .form span {
+        font-size: 0.6rem;
+    }
+
+    .overlay .page h3 {
+        font-size: 1.2rem;
+        color: #222;
+    }
+
+    .overlay .page p {
+        font-size: 0.5rem;
+        color: #3a3838;
+    }
+
+    .btn {
+        padding: 6px 20px;
+        font-size: 0.6rem;
+    }
+
+    .form.sign_in .btnSign-in,
+    .form.sign_up .btnSign-up {
+        display: block;
+        margin: 8px auto 0;
+        border: 1.5px solid #FF4167;
+        color: #FF4167;
+        position: static;
+        padding: 5px 18px;
+        font-size: 0.5rem;
+    }
+
+    .form.sign_in .btnSign-in:hover,
+    .form.sign_up .btnSign-up:hover {
+        background-color: #FF4167;
+        color: #fff;
+    }
+
+    #form_input_login .forgot,
+    #form_input_register .forgot {
+        font-size: 0.6rem;
+        margin-bottom: 10px;
+    }
+
+    .form-check-input {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .form-check-label {
+        font-size: 0.6rem;
+    }
 }

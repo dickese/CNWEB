@@ -286,3 +286,12 @@ aside{
 .filter-dropdown li a:hover {
     color: #3498db;
 }
+.original-price {
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.discount-price {
+    font-size: 1.1em;
+    font-weight: bold;
+}

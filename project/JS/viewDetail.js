@@ -1,11 +1,11 @@
 function renderProductDetail(product) {
     if (product) {
-       $("#product-title").text(product.name);
-        $("#product-image").attr("src", product.images[0]);
-        $("#sub-img1").attr("src", product.images[0] || "");
-        $("#sub-img2").attr("src", product.images[1] || "");
-        $("#sub-img3").attr("src", product.images[2] || "");
-        $("#product-color").text(product.color);
+        $("#product-image").attr("src", product.images[0] || "../IMG/default.jpg");
+        $("#sub-img1").attr("src", product.images[0] || "../IMG/default.jpg");
+        $("#sub-img2").attr("src", product.images[1] || product.images[0] || "../IMG/default.jpg");
+        $("#sub-img3").attr("src", product.images[2] || product.images[0] || "../IMG/default.jpg");
+        $("#product-title").text(product.name + " - " + product.id);
+        $("#product-price").html(addDiscount(product)); // Sửa dòng này
         $("#product-description").text(product.description);
 
         if (product.discount) {
@@ -63,7 +63,7 @@ function renderRelatedProducts(product) {
                     </div> 
                     <div class="card-body">
                         <h5 class="card-title">${relProduct.name}</h5>
-                        <p class="price">${relProduct.price.toLocaleString("vi-VN")} đ</p>
+                        <p class="price">${addDiscount(relProduct)}</p> <!-- Sửa dòng này -->
                     </div>
                 </div>
             </div>`;
