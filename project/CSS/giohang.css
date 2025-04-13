@@ -84,3 +84,57 @@ footer{
 .hidden {
     display: none !important;
 }
+@media (max-width: 600px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .table thead th {
+        font-size: 0.5rem;
+        padding: 6px 4px;
+    }
+
+    .table tbody td {
+        padding:0;
+    }
+
+    .table img {
+        max-width: 50px;
+    }
+    .col-md-3 {
+        display: none; 
+    }
+
+    .col-md-9 {
+        width: 100%; 
+    }
+    img {
+        display: none;
+    }
+    .btn-decrease,
+    .btn-increase {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    .tongsp {
+        font-size: 0.85rem; 
+        text-align: center !important; 
+    }
+
+    .tongsp p {
+        margin-bottom: 5px; 
+    }
+
+    #total-quantity, #total-price {
+        font-size: 0.85rem; 
+    }
+    .btn-outline-dark, .btn-dark {
+        font-size: 0.75rem; 
+        width: 90% !important;
+        min-width: unset;
+    }
+}

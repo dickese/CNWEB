@@ -14,6 +14,10 @@ function renderProductsPage(page, products) {
     productsContainer.empty();
 
     $.each(productsToShow, function (index, product) {
+        const discountPrice = product.discount ? product.price * (1 - product.discount / 100) : null;
+        const priceDisplay = product.discount
+            ? `<p class="price"><span class="original-price text-muted text-decoration-line-through" style="font-size: 13px;">${product.price.toLocaleString("vi-VN")} đ </span> <span class="discount-price text-danger">${discountPrice.toLocaleString("vi-VN")} đ</span></p>`
+            : `<p class="price">${product.price.toLocaleString("vi-VN")} đ</p>`;
         const productCard = `
             <div class="col-md-4 mb-4">
                 <div class="card product-card">
@@ -24,7 +28,7 @@ function renderProductsPage(page, products) {
                     </div> 
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
-                        <p class="price">${product.price.toLocaleString("vi-VN")} đ</p>
+                        ${priceDisplay}
                     </div>
                 </div>
             </div>`;
@@ -33,7 +37,6 @@ function renderProductsPage(page, products) {
 
     updatePagination(products);
 }
-
 function updatePagination(products) {
     const totalPages = Math.ceil(products.length / itemsPerPage);
     const paginationContainer = $("#pagination");
@@ -64,40 +67,52 @@ const category = getQueryParam("category");
 const type = getQueryParam("type");
 
 function filterProducts(category, type) {
-    const filteredProducts = products.filter(product => {
-        return product.category === category && (!type || product.type === type);
-    });
+    let filteredProducts;
+    if (category === "khuyenmai") {
+        filteredProducts = products.filter(product => product.discount);
+    } else {
+        filteredProducts = products.filter(product => {
+            return product.category === category && (!type || product.type === type);
+        });
+    }
 
     if (filteredProducts.length === 0) {
-        productsContainer.innerHTML = "<p>Không có sản phẩm nào trong danh mục này.</p>";
-        return;
-    }
-    else {
-        return filteredProducts
+        $("#products-container").html("<p>Không có sản phẩm nào trong danh mục này.</p>");
+        return [];
+    } else {
+        return filteredProducts;
     }
 }
 
 function loadSubPage(category) {
     let subPage;
     if (category === "ao") {
-        subPage = "Áo"
+        subPage = "Áo";
+    } else if (category === "quan") {
+        subPage = "Quần";
+    } else if (category === "phu-kien") {
+        subPage = "Phụ kiện";
+    } else if (category === "khuyenmai") {
+        subPage = "Khuyến Mãi";
+    } else {
+        subPage = "Khuyến Mãi"; 
     }
-    else if (category === "quan") {
-        subPage = "Quần"
-    }
-    else {
-        subPage = "Phụ kiện"
-    }
-    $("#sub").text(subPage)
+    $("#sub").text(subPage);
 }
 
 function loadBanner(category) {
-    const banner = banners.find(b => b.category === category)
-    $(".banner-image").attr("src", banner.img);
-    $(".banner-title").text(banner.title)
-    $(".banner-desciption").text(banner.description)
+    const banner = banners.find(b => b.category === category);
+    if (banner) {
+        $(".banner-image").attr("src", banner.img);
+        $(".banner-title").text(banner.title);
+        $(".banner-desciption").text(banner.description);
+    } else {
+        console.log(`Không tìm thấy banner cho category: ${category}`);
+        $(".banner-image").attr("src", "../IMG/banner/khuyenmai.webp");
+        $(".banner-title").text("Khuyến Mãi");
+        $(".banner-desciption").text("Hàng khuyến mãi ! Của rẻ chưa chắc là của hôi. Nhưng chúng tôi chắc chắn scam ^_^");
+    }
 }
-
 function loadCategoryList(selectedCategory) {
     const categoryTitle = document.getElementById("category-title");
     const categoryListContainer = document.getElementById("category-list");
@@ -176,22 +191,21 @@ $(document).ready(function () {
     onChange();
     $(document).on("click", ".dropdown-item", function (event) {
         event.preventDefault();
-
         const category = $(this).closest(".dropdown").find(".category-parent").data("category");
         const subcategory = $(this).data("subcategory");
-
         const newUrl = `SanPham.html?category=${category}${subcategory ? `&type=${subcategory}` : ""}`;
         window.history.pushState({}, "", newUrl);
-
         renderProductsPage(1, filterProducts(category, subcategory));
     });
     $(document).on("click", ".view-details", function (event) {
         event.preventDefault();
         let productId = $(this).data("id");
-        localStorage.setItem("id", productId)
+        localStorage.setItem("id", productId);
         window.location.href = `./ChiTietSanPham.html?id=${productId}`;
     });
-
+    $(document).on("click", ".filter-btn", function () {
+        toggleFilter();
+    });
 });
 
 function toggleFilter() {
@@ -202,14 +216,14 @@ function toggleFilter() {
 // Đóng dropdown khi nhấn ra ngoài
 document.addEventListener('click', function(event) {
     const dropdown = document.getElementById('filter-dropdown');
-    const filterBtn = document.querySelector('.filter-btn');
-    if (!dropdown.contains(event.target) && !filterBtn.contains(event.target)) {
+    const filterBtn = document.getElementById('filter-btn');
+    if (dropdown && filterBtn && !dropdown.contains(event.target) && !filterBtn.contains(event.target)) {
         dropdown.classList.remove('active');
     }
 });
 
 function onChange() {
-    const category = getQueryParam("category");
+    const category = getQueryParam("category") || "khuyenmai"; 
     const type = getQueryParam("type");
     loadSubPage(category);
     loadBanner(category);
@@ -217,4 +231,31 @@ function onChange() {
     console.log("Calling loadFilterCategoryList with category:", category);
     loadFilterCategoryList(category);
     renderProductsPage(1, filterProducts(category, type));
+}
+
+function addDiscount(product) {
+    const originalPrice = product.price;
+    const discountPercent = product.discount || 0; // Tránh lỗi nếu discount không tồn tại
+    const discountedPrice = originalPrice * (1 - discountPercent / 100);
+
+    if (discountPercent > 0) {
+        return `
+        <div>
+            <p class="original-price" style="text-decoration: line-through; color: gray; display:inline">
+                ${originalPrice.toLocaleString("vi-VN")} đ
+            </p>
+            <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold; display:inline; margin-left:10px">
+                ${discountedPrice.toLocaleString("vi-VN")} đ
+            </p>
+        </div>
+        <span class="btn discount-percent" style="background-color: #caaf6e; font-size:16px; color:white;font-weight: bold; padding:0 10px">
+            ${discountPercent}%
+        </span>
+        `;
+    }
+    return `
+        <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold;">
+            ${originalPrice.toLocaleString("vi-VN")} đ
+        </p>
+    `;
 }

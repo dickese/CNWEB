@@ -5,7 +5,7 @@ function renderProductDetail(product) {
         $("#sub-img2").attr("src", product.images[1] || product.images[0] || "../IMG/default.jpg");
         $("#sub-img3").attr("src", product.images[2] || product.images[0] || "../IMG/default.jpg");
         $("#product-title").text(product.name + " - " + product.id);
-        $("#product-price").text(product.price.toLocaleString("vi-VN") + " đ");
+        $("#product-price").html(addDiscount(product)); // Sửa dòng này
         $("#product-description").text(product.description);
 
         const colorContainer = $("#product-color");
@@ -48,7 +48,7 @@ function renderRelatedProducts(product) {
                     </div> 
                     <div class="card-body">
                         <h5 class="card-title">${relProduct.name}</h5>
-                        <p class="price">${relProduct.price.toLocaleString("vi-VN")} đ</p>
+                        <p class="price">${addDiscount(relProduct)}</p> <!-- Sửa dòng này -->
                     </div>
                 </div>
             </div>`;

@@ -132,3 +132,138 @@ h5 {
     margin: 0 auto;
     display: block;
 }
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .form-section,
+    .summary-section {
+        padding: 15px;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+    }
+
+    .form-control,
+    .form-select {
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .btn-warning,
+    .btn-secondary {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .table {
+        font-size: 0.85rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .error-icon,
+    .success-icon {
+        font-size: 50px;
+    }
+}
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    .form-section {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .summary-section {
+        padding: 12px;
+    }
+
+    h5 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        padding-top: 0; /* Xóa padding-top trên mobile */
+    }
+
+    .titleborder {
+        padding-top: 15px;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+    }
+
+    .form-control,
+    .form-select {
+        height: 34px;
+        font-size: 0.8rem;
+    }
+
+    .btn-warning,
+    .btn-secondary {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .table {
+        font-size: 0.8rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .error-icon,
+    .success-icon {
+        font-size: 40px;
+    }
+
+    .modal button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+}
+
+/* Override padding của main từ page.css */
+main {
+    padding: 0 15px !important;
+}
+
+@media (min-width: 1024px) {
+    main {
+        padding: 0 200px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0 10px !important;
+    }
+}

@@ -1,7 +1,8 @@
 /* Layout linh hoạt theo kích thước màn hình */
-#footer-top{
+#footer-top {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Mặc định 4 cột */
+    grid-template-columns: repeat(4, 1fr);
+    /* Mặc định 4 cột */
     gap: 20px;
 }
 
@@ -10,19 +11,24 @@ footer h4 {
     font-size: 1.2rem;
 }
 
-footer p, footer ul li {
+footer p,
+footer ul li {
     font-size: 1rem;
 }
 
-#aboutus a i, footer i {
-    font-size: 1.2rem; /* Kích thước icon */
+#aboutus a i,
+footer i {
+    font-size: 1.2rem;
+    /* Kích thước icon */
 }
 
 /* Điều chỉnh cho màn hình Tablet */
 @media (max-width: 1024px) {
     #footer-top {
-        grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+        grid-template-columns: repeat(2, 1fr);
+        /* Chia thành 2 cột */
     }
+
     .navbar-brand {
         font-size: 0.9rem;
     }
@@ -34,16 +40,19 @@ footer p, footer ul li {
     .navbar-nav .nav-item i {
         font-size: 0.9rem;
     }
-    .nav-item{
+
+    .nav-item {
         margin: 0 5px;
     }
+
     #search-form {
         width: 200px;
     }
-    .breadcumbs{
+
+    .breadcumbs {
         padding-left: 0;
     }
-    
+
     main {
         padding: 0 10px;
     }
@@ -53,7 +62,8 @@ footer p, footer ul li {
     }
 
     .banner {
-        height: 200px; /* Thu nhỏ banner trên tablet */
+        height: 200px;
+        /* Thu nhỏ banner trên tablet */
     }
 
     .banner-category {
@@ -73,7 +83,8 @@ footer p, footer ul li {
     }
 
     aside {
-        width: 20%; /* Tăng chiều rộng aside trên tablet */
+        width: 20%;
+        /* Tăng chiều rộng aside trên tablet */
     }
 
     #products-container {
@@ -106,36 +117,44 @@ footer p, footer ul li {
 /* Điều chỉnh cho màn hình Mobile */
 @media (max-width: 600px) {
     #footer-top {
-        grid-template-columns: repeat(1, 1fr); /* Chuyển thành 1 cột */
+        grid-template-columns: repeat(1, 1fr);
+        /* Chuyển thành 1 cột */
     }
 
     footer h4 {
         font-size: 1rem;
     }
 
-    footer p, footer ul li {
+    footer p,
+    footer ul li {
         font-size: 0.9rem;
     }
 
-    #aboutus a i, footer i {
-        font-size: 1rem !important; /* Giảm kích thước icon */
+    #aboutus a i,
+    footer i {
+        font-size: 1rem !important;
+        /* Giảm kích thước icon */
     }
 
-    #footer-bottom{
+    #footer-bottom {
         font-size: 0.5rem;
-        text-align: center; /* Căn giữa copyright */
+        text-align: center;
+        /* Căn giữa copyright */
     }
+
     .navbar {
         padding: 5px 0;
     }
 
     .navbar-toggler {
-        font-size: 1rem; /* Thu nhỏ nút mở menu */
+        font-size: 1rem;
+        /* Thu nhỏ nút mở menu */
     }
 
     .navbar-brand {
         font-size: 1.2rem;
     }
+
     .navbar-nav .nav-link {
         font-size: 0.9rem;
         padding: 6px 10px;
@@ -148,7 +167,8 @@ footer p, footer ul li {
     #search-form {
         width: 100%;
     }
-    .breadcumbs{
+
+    .breadcumbs {
         padding-left: 0;
     }
 
@@ -159,9 +179,11 @@ footer p, footer ul li {
     }
 
     #products-container {
-        width: 90%; /* Giảm chiều rộng để tạo khoảng trống hai bên */
+        width: 90%;
+        /* Giảm chiều rộng để tạo khoảng trống hai bên */
         padding: 0;
-        margin: 0 auto; /* Canh giữa */
+        margin: 0 auto;
+        /* Canh giữa */
     }
 
     .container-fluid {
@@ -169,7 +191,8 @@ footer p, footer ul li {
     }
 
     .banner {
-        height: 100px; /* Thu nhỏ banner trên mobile */
+        height: 100px;
+        /* Thu nhỏ banner trên mobile */
     }
 
     .banner-image {
@@ -188,11 +211,13 @@ footer p, footer ul li {
     }
 
     .banner-title {
-        font-size: 1rem; /* Font nhỏ hơn trên mobile */
+        font-size: 1rem;
+        /* Font nhỏ hơn trên mobile */
     }
 
     .banner-desciption {
-        font-size: 0.7rem; /* Font nhỏ hơn trên mobile */
+        font-size: 0.7rem;
+        /* Font nhỏ hơn trên mobile */
         margin: 3px 0 0;
     }
 
@@ -202,31 +227,41 @@ footer p, footer ul li {
     }
 
     aside {
-        display: none; /* Ẩn aside trên mobile */
+        display: none;
+        /* Ẩn aside trên mobile */
     }
 
     #filter-btn {
-        display: block; /* Hiển thị nút bộ lọc trên mobile */
+        display: block;
+        /* Hiển thị nút bộ lọc trên mobile */
     }
 
     .filter-dropdown.active {
-        display: block; /* Hiển thị dropdown khi nhấn nút */
+        display: block;
+        /* Hiển thị dropdown khi nhấn nút */
     }
 
     #products-container .col-md-4 {
-        width: 50%; /* 2 cột trên mobile */
-        flex: 0 0 50%; /* Đảm bảo chiếm 50% chiều rộng */
-        max-width: 50%; /* Đảm bảo không vượt quá 50% */
-        padding: 0 5px; /* Khoảng cách giữa các cột */
+        width: 50%;
+        /* 2 cột trên mobile */
+        flex: 0 0 50%;
+        /* Đảm bảo chiếm 50% chiều rộng */
+        max-width: 50%;
+        /* Đảm bảo không vượt quá 50% */
+        padding: 0 5px;
+        /* Khoảng cách giữa các cột */
     }
 
     .card.product-card {
-        height: 200px; /* Thu nhỏ card trên mobile */
-        margin: 5px 0; /* Khoảng cách giữa các card */
+        height: 200px;
+        /* Thu nhỏ card trên mobile */
+        margin: 5px 0;
+        /* Khoảng cách giữa các card */
     }
 
     .card.product-card .image-container {
-        height: 120px; /* Thu nhỏ hình ảnh */
+        height: 120px;
+        /* Thu nhỏ hình ảnh */
     }
 
     .card-body {
@@ -250,5 +285,9 @@ footer p, footer ul li {
         font-size: 0.7rem;
     }
 
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 

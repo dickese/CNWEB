@@ -38,6 +38,7 @@
 .breadcrumb {
     background: none;
 }
+
 #sub-img1,
 #sub-img2,
 #sub-img3 {
@@ -48,7 +49,8 @@
     cursor: pointer;
     margin-bottom: 5px;
 }
-.related-products{
+
+.related-products {
     margin: 5px 0;
 }
 
@@ -66,6 +68,7 @@
     max-width: 100%;
     height: auto;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -79,8 +82,8 @@
 
 .modal-content {
     background-color: white;
-    width: auto; 
-    max-width: 600px; 
+    width: auto;
+    max-width: 600px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -96,10 +99,10 @@
     position: absolute;
     top: 5px;
     right: 10px;
-    font-size: 28px; 
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    color: #333; 
+    color: #333;
     background: none;
     border: none;
     outline: none;
@@ -107,7 +110,7 @@
 }
 
 .close:hover {
-    color: red; 
+    color: red;
 }
 
 
@@ -125,6 +128,7 @@
 .modal button:hover {
     background-color: #0056b3;
 }
+
 .modal-content h2 {
     padding-top: 10px;
     margin-bottom: 10px;
@@ -139,9 +143,52 @@
     margin: 0 auto;
     display: block;
 }
+
 .success-icon {
     font-size: 80px;
     color: green;
     margin: 0 auto;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .row>.col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 10px !important;
+    }
+
+    #product-image-container,
+    .sub-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .sub-img {
+        display: inline-block;
+        width: 30%;
+        margin-right: 5px;
+    }
+
+    #add-to-cart-btn {
+        width: 100% !important;
+    }
+
+    .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .size-button {
+        flex: 1 1 45%;
+        text-align: center;
+        border: 1px solid black;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
 }

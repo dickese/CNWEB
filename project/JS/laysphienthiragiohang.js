@@ -40,32 +40,68 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalPrice = 0;
 
         cart.forEach((item, index) => {
-            const price = parseInt(item.price.replace(/[^0-9]/g, ""), 10);
+            const price = item.actualPrice;
             totalQuantity += item.quantity;
             totalPrice += price * item.quantity;
 
-            const itemHTML = `
-                <tr>
-                    <td class="text-start d-flex align-items-center">
-                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+            // Kiểm tra products để tránh lỗi
+            const productDiscount = (typeof products !== 'undefined' && products) ? products.find(p => p.id === item.id)?.discount || 0 : 0;
+
+            const product = {
+                price: item.actualPrice,
+                discount: productDiscount
+            };
+
+            // Hàm addDiscount (sao chép từ render.js)
+            function addDiscount(product) {
+                const originalPrice = product.price / (1 - product.discount / 100); // Tính ngược giá gốc
+                const discountPercent = product.discount || 0;
+                const discountedPrice = product.price;
+
+                if (discountPercent > 0) {
+                    return `
                         <div>
-                            <div>${item.name}</div>
-                            <div>Size: ${item.size}</div>
-                            <div>Màu: ${item.color}</div>
+                            <p class="original-price" style="text-decoration: line-through; color: gray; display:inline">
+                                ${originalPrice.toLocaleString("vi-VN")} đ
+                            </p>
+                            <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold; display:inline; margin-left:10px">
+                                ${discountedPrice.toLocaleString("vi-VN")} đ
+                            </p>
                         </div>
-                    </td>
-                    <td class="text-center">
-                        <button class="btn-decrease" onclick="updateQuantity(${index}, -1)">-</button>
-                        <span class="spanquantity">${item.quantity}</span>
-                        <button class="btn-increase" onclick="updateQuantity(${index}, 1)">+</button>
-                    </td>
-                    <td class="text-end">${item.price}</td>
-                    <td class="text-end">${(price * item.quantity).toLocaleString("vi-VN")} đ</td>
-                    <td class="text-end">
-                        <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Xóa</button>
-                    </td>
-                </tr>
-            `;
+                        <span class="btn discount-percent" style="background-color: #caaf6e; font-size:16px; color:white;font-weight: bold; padding:0 10px">
+                            ${discountPercent}%
+                        </span>
+                        `;
+                }
+                return `
+                        <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold;">
+                            ${discountedPrice.toLocaleString("vi-VN")} đ
+                        </p>
+                    `;
+            }
+
+            const itemHTML = `
+                    <tr>
+                        <td class="text-start d-flex align-items-center">
+                            <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+                            <div>
+                                <div>${item.name}</div>
+                                <div>Size: ${item.size}</div>
+                                <div>Màu: ${item.color}</div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn-decrease" onclick="updateQuantity(${index}, -1)">-</button>
+                            <span class="spanquantity">${item.quantity}</span>
+                            <button class="btn-increase" onclick="updateQuantity(${index}, 1)">+</button>
+                        </td>
+                        <td class="text-end">${addDiscount(product)}</td>
+                        <td class="text-end">${(price * item.quantity).toLocaleString("vi-VN")} đ</td>
+                        <td class="text-end">
+                            <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Xóa</button>
+                        </td>
+                    </tr>
+                `;
             cartContainer.innerHTML += itemHTML;
         });
 
