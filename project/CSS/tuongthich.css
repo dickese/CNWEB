@@ -1,7 +1,6 @@
-/* Layout linh hoạt theo kích thước màn hình */
 #footer-top{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Mặc định 4 cột */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -18,7 +17,6 @@ footer p, footer ul li {
     font-size: 1.2rem; /* Kích thước icon */
 }
 
-/* Điều chỉnh cho màn hình Tablet */
 @media (max-width: 1024px) {
     #footer-top {
         grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
@@ -103,10 +101,9 @@ footer p, footer ul li {
 
 }
 
-/* Điều chỉnh cho màn hình Mobile */
 @media (max-width: 600px) {
     #footer-top {
-        grid-template-columns: repeat(1, 1fr); /* Chuyển thành 1 cột */
+        grid-template-columns: repeat(1, 1fr);
     }
 
     footer h4 {
@@ -118,7 +115,7 @@ footer p, footer ul li {
     }
 
     #aboutus a i, footer i {
-        font-size: 1rem !important; /* Giảm kích thước icon */
+        font-size: 1rem !important; 
     }
 
     #footer-bottom{

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const row = `
                 <tr>
                     <td class="text-start d-flex align-items-center">
-                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" style="margin-right: 10px">
                         <div>
                             <div>${item.name}</div>
                             <div>Size: ${item.size}</div>

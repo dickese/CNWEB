@@ -1,15 +1,30 @@
 function renderProductDetail(product) {
     if (product) {
-        $("#product-image").attr("src", product.images[0] || "../IMG/default.jpg");
-        $("#sub-img1").attr("src", product.images[0] || "../IMG/default.jpg");
-        $("#sub-img2").attr("src", product.images[1] || product.images[0] || "../IMG/default.jpg");
-        $("#sub-img3").attr("src", product.images[2] || product.images[0] || "../IMG/default.jpg");
-        $("#product-title").text(product.name + " - " + product.id);
-        $("#product-price").text(product.price.toLocaleString("vi-VN") + " đ");
+       $("#product-title").text(product.name);
+        $("#product-image").attr("src", product.images[0]);
+        $("#sub-img1").attr("src", product.images[0] || "");
+        $("#sub-img2").attr("src", product.images[1] || "");
+        $("#sub-img3").attr("src", product.images[2] || "");
+        $("#product-color").text(product.color);
         $("#product-description").text(product.description);
 
-        const colorContainer = $("#product-color");
-        colorContainer.text(product.colors ? product.colors.join(", ") : "Không xác định");
+        if (product.discount) {
+            const discountedPrice = product.price - (product.price * product.discount / 100);
+            $("#product-price").html(`
+                <span class="original-price" style="text-decoration: line-through; color: gray;font-size: 16px">
+                    ${product.price.toLocaleString("vi-VN")} đ
+                </span>
+                <span class="discounted-price m-2" style="color: red; font-weight: bold;">
+                    ${discountedPrice.toLocaleString("vi-VN")} đ
+                </span>
+                 <span class="btn discount-percent" style="background-color: #caaf6e; font-size:16px; color:white;font-weight: bold; padding:0 10px">
+                    ${product.discount}%
+                </span>
+                
+            `);
+        } else {
+            $("#product-price").text(`${product.price.toLocaleString("vi-VN")} đ`);
+        }
 
         const sizeContainer = $("#size-options");
         sizeContainer.empty();
@@ -81,13 +96,11 @@ $(document).ready(function () {
         console.log("Selected size:", window.selectedSize); // Debug để kiểm tra
     });
 
-    // Xử lý hover ảnh phụ
     $(document).on("mouseenter", ".sub-img", function () {
         const newSrc = $(this).attr("src");
         $("#product-image").attr("src", newSrc);
     });
 
-    // Xử lý phóng to ảnh
     $(document).on("mousemove", "#product-image", function (e) {
         const image = $(this);
         const offsetX = e.offsetX;

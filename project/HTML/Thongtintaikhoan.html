@@ -175,27 +175,31 @@
     </div>
     <div id="editInfoModal" class="modal">
         <div class="modal-content">
-            <span class="close">×</span>
-            <h2>Sửa Thông Tin</h2>
-            <form id="editInfoForm">
-                <div class="form-group">
-                    <label for="editUsername">Tên đăng nhập:</label>
-                    <input type="text" id="editUsername" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="editFullName">Họ và tên:</label>
-                    <input type="text" id="editFullName" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="editEmail">Email:</label>
-                    <input type="email" id="editEmail" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="editPhone">Điện thoại:</label>
-                    <input type="text" id="editPhone" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">OK</button>
-            </form>
+            <div class="modal-header">
+                    <h5 class="modal-title" id="Label">Sửa Thông Tin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editInfoForm">
+                    <div class="form-group">
+                        <label for="editUsername">Tên đăng nhập:</label>
+                        <input type="text" id="editUsername" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editFullName">Họ và tên:</label>
+                        <input type="text" id="editFullName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Điện thoại:</label>
+                        <input type="text" id="editPhone" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">OK</button>
+                </form>
+            </div>
         </div>
     </div>
     <div id="changePasswordModal" class="modal">
