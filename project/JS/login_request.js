@@ -3,98 +3,132 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnSignIn = document.querySelector(".btnSign-in");
     const btnSignUp = document.querySelector(".btnSign-up");
 
-    // Hàm lấy dữ liệu người dùng từ localStorage
-    function getUsersFromStorage() {
-        return JSON.parse(localStorage.getItem("registeredUsers")) || {};
-    }
+    btnSignIn.addEventListener("click", () => containerr.classList.add("active"));
+    btnSignUp.addEventListener("click", () => containerr.classList.remove("active"));
 
-    // Hàm lưu dữ liệu người dùng vào localStorage
-    function saveUsersToStorage(users) {
-        localStorage.setItem("registeredUsers", JSON.stringify(users));
-    }
+    const showError = (id, message) => {
+        const input = document.getElementById(id);
+        const errorDiv = document.getElementById(id + "_error");
+        input.classList.add("error");
+        errorDiv.innerText = message;
+        errorDiv.style.display = "block";
+    };
 
-    // Xử lý hiệu ứng chuyển đổi giữa Sign In và Sign Up
-    btnSignIn.addEventListener("click", function () {
-        containerr.classList.add("active");
-    });
+    const clearErrors = () => {
+        document.querySelectorAll("input").forEach(input => input.classList.remove("error"));
+        document.querySelectorAll(".error-message").forEach(div => {
+            div.innerText = "";
+            div.style.display = "none";
+        });
+    };
 
-    btnSignUp.addEventListener("click", function () {
-        containerr.classList.remove("active");
-    });
+    // Đăng nhập
+    document.getElementById("form_input_login").addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
 
-    // đăng nhập
-    document.querySelector(".sign_in form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        let email = document.querySelector(".sign_in #email_login").value.trim();
-        let password = document.querySelector(".sign_in #password_login").value.trim();
+        let email = document.getElementById("email_login").value.trim();
+        let password = document.getElementById("password_login").value.trim();
+        let valid = true;
 
-        if (email === "" || password === "") {
-            return;
+        if (!email) {
+            showError("email_login", "Vui lòng nhập email!");
+            valid = false;
         }
 
-        // Tài khoản admin
+        if (!password) {
+            showError("password_login", "Vui lòng nhập mật khẩu!");
+            valid = false;
+        }
+
+        if (!valid) return;
+
         if (email === "admin@admin.com" && password === "admin") {
             localStorage.setItem("loggedInUser", "Admin");
-            window.location.href = "Trangchu.html"; 
+            window.location.href = "Trangchu.html";
             return;
         }
 
-        // Kiểm tra đăng nhập thường
-        const users = getUsersFromStorage();
+        const users = JSON.parse(localStorage.getItem("registeredUsers")) || {};
         const user = Object.values(users).find(u => u.email === email && u.password === password);
 
         if (user) {
-            localStorage.setItem("loggedInUser", user.username); 
-            window.location.href = "Trangchu.html"; 
+            localStorage.setItem("loggedInUser", user.username);
+            window.location.href = "Trangchu.html";
+        } else {
+            showError("email_login", "Email hoặc mật khẩu không đúng!");
+            showError("password_login", "");
         }
     });
 
-    // đăng ký
-document.querySelector(".sign_up form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    let username = document.querySelector("#UserName").value.trim();
-    let fullname = document.querySelector("#FullName").value.trim();
-    let email = document.querySelector(".sign_up #email_register").value.trim();
-    let password = document.querySelector(".sign_up #password_register").value.trim();
-    let confirmPassword = document.querySelector("#confirm_password_register").value.trim();
-    let phone = document.querySelector("#phone").value.trim();
-    let agreeTerms = document.querySelector("#agreeTerms").checked;
+    // Đăng ký
+    document.getElementById("form_input_register").addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
 
-    if (!username || !fullname || !email || !password || !confirmPassword || !phone) {
-        alert("Vui lòng nhập đầy đủ thông tin đăng ký!");
-        return;
-    }
+        let username = document.getElementById("UserName").value.trim();
+        let fullname = document.getElementById("FullName").value.trim();
+        let email = document.getElementById("email_register").value.trim();
+        let password = document.getElementById("password_register").value.trim();
+        let confirmPassword = document.getElementById("confirm_password_register").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let agreeTerms = document.getElementById("agreeTerms").checked;
 
-    if (password !== confirmPassword) {
-        alert("Mật khẩu nhập lại không khớp!");
-        return;
-    }
+        let valid = true;
 
-    if (!agreeTerms) {
-        alert("Bạn cần đồng ý với chính sách trước khi đăng ký!");
-        return;
-    }
+        if (!username) {
+            showError("UserName", "Vui lòng nhập tên đăng nhập!");
+            valid = false;
+        }
+        if (!fullname) {
+            showError("FullName", "Vui lòng nhập họ tên!");
+            valid = false;
+        }
+        if (!email) {
+            showError("email_register", "Vui lòng nhập email!");
+            valid = false;
+        }
+        if (!password) {
+            showError("password_register", "Vui lòng nhập mật khẩu!");
+            valid = false;
+        }
+        if (!confirmPassword) {
+            showError("confirm_password_register", "Vui lòng xác nhận mật khẩu!");
+            valid = false;
+        }
+        if (password && confirmPassword && password !== confirmPassword) {
+            showError("confirm_password_register", "Mật khẩu không khớp!");
+            valid = false;
+        }
+        if (!phone) {
+            showError("phone", "Vui lòng nhập số điện thoại!");
+            valid = false;
+        }
+        if (!/^(0|\+84)[0-9]{9}$/.test(phone)) {
+            showError("phone", "Số điện thoại không hợp lệ! (VD: 0987654321)");
+            valid = false;
+        }
+        if (!agreeTerms) {
+            showError("agreeTerms", "Bạn cần đồng ý với chính sách!");
+            valid = false;
+        }
 
-    const users = getUsersFromStorage();
+        if (!valid) return;
 
-    if (users[email]) {
-        alert("Email đã được đăng ký. Vui lòng dùng email khác.");
-        return;
-    }
+        const users = JSON.parse(localStorage.getItem("registeredUsers")) || {};
+        if (users[email]) {
+            showError("email_register", "Email đã được đăng ký.");
+            return;
+        }
 
-    users[email] = {
-        username: username,
-        fullname: fullname, 
-        email: email,
-        password: password,
-        phone: phone, 
-        registerDate: new Date().toLocaleString("vi-VN") 
-    };
-    saveUsersToStorage(users);
+        users[email] = {
+            username, fullname, email, password, phone,
+            registerDate: new Date().toLocaleString("vi-VN")
+        };
 
-    alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
-    containerr.classList.remove("active");
-    document.querySelector(".sign_in #email_login").value = email;
-    document.querySelector(".sign_in #password_login").value = password;
-});
+        localStorage.setItem("registeredUsers", JSON.stringify(users));
+        containerr.classList.remove("active");
+        document.getElementById("email_login").value = email;
+        document.getElementById("password_login").value = password;
+    });
 });

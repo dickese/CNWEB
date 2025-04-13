@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^(09|03|07|06|05|04)\d{8}$/;
-    const nameRegex = /^[A-ZÀ-ỹ][a-zà-ỹ]+(\s[A-ZÀ-ỹ][a-zà-ỹ]+)+$/;
+    const nameRegex = /^[A-ZÀ-ỹ][a-zà-ỹ]+(\s[A-ZÀ-ỹ][a-zà-ỹ]*)+$/;
 
     function validateEmail() {
         if (!emailInput.value.trim()) {
