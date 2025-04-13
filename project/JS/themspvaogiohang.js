@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const productInCart = {
             id: product.id,
             name: product.name,
-            price: product.price.toLocaleString("vi-VN") + " đ",
+            price: ((product.discount ? product.price * (1 - product.discount / 100) : product.price).toLocaleString("vi-VN") + " đ"),
+            actualPrice: product.discount ? product.price * (1 - product.discount / 100) : product.price,
             size: window.selectedSize || "Mặc định",
             quantity: 1,
             image: product.images ? product.images[0] : "../IMG/default.jpg",

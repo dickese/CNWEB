@@ -31,25 +31,61 @@ document.addEventListener("DOMContentLoaded", function () {
         tbody.innerHTML = "";
 
         cart.forEach((item) => {
-            const price = parseInt(item.price.replace(/[^0-9]/g, ""), 10);
+            const price = item.actualPrice;
             totalProduct += item.quantity;
             totalPrice += price * item.quantity;
 
-            const row = `
-                <tr>
-                    <td class="text-start d-flex align-items-center">
-                        <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+            // Kiểm tra products để tránh lỗi
+            const productDiscount = (typeof products !== 'undefined' && products) ? products.find(p => p.id === item.id)?.discount || 0 : 0;
+
+            const product = {
+                price: item.actualPrice,
+                discount: productDiscount
+            };
+
+            // Hàm addDiscount (sao chép từ render.js)
+            function addDiscount(product) {
+                const originalPrice = product.price / (1 - product.discount / 100); // Tính ngược giá gốc
+                const discountPercent = product.discount || 0;
+                const discountedPrice = product.price;
+
+                if (discountPercent > 0) {
+                    return `
                         <div>
-                            <div>${item.name}</div>
-                            <div>Size: ${item.size}</div>
-                            <div>Màu: ${item.color}</div>
+                            <p class="original-price" style="text-decoration: line-through; color: gray; display:inline">
+                                ${originalPrice.toLocaleString("vi-VN")} đ
+                            </p>
+                            <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold; display:inline; margin-left:10px">
+                                ${discountedPrice.toLocaleString("vi-VN")} đ
+                            </p>
                         </div>
-                    </td>
-                    <td class="text-center">${item.quantity}</td>
-                    <td class="text-end">${item.price}</td>
-                    <td class="text-end">${(price * item.quantity).toLocaleString("vi-VN")} đ</td>
-                </tr>
-            `;
+                        <span class="btn discount-percent" style="background-color: #caaf6e; font-size:16px; color:white;font-weight: bold; padding:0 10px">
+                            ${discountPercent}%
+                        </span>
+                        `;
+                                }
+                                return `
+                        <p class="discounted-price" style="color:rgb(63, 62, 62);font-weight: bold;">
+                            ${discountedPrice.toLocaleString("vi-VN")} đ
+                        </p>
+                    `;
+            }
+
+            const row = `
+                    <tr>
+                        <td class="text-start d-flex align-items-center">
+                            <img src="${item.image || '../img/default-image.png'}" alt="${item.name}" width="50" class="me-3">
+                            <div>
+                                <div>${item.name}</div>
+                                <div>Size: ${item.size}</div>
+                                <div>Màu: ${item.color}</div>
+                            </div>
+                        </td>
+                        <td class="text-center">${item.quantity}</td>
+                        <td class="text-end">${addDiscount(product)}</td>
+                        <td class="text-end">${(price * item.quantity).toLocaleString("vi-VN")} đ</td>
+                    </tr>
+                `;
             tbody.innerHTML += row;
         });
 
@@ -239,6 +275,45 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModal("successModal");
         window.location.href = "Trangchu.html";
     });
+
+    document.getElementById("city").addEventListener("change", function () {
+        let city = this.value;
+        let districtSelect = document.getElementById("district");
+        let wardSelect = document.getElementById("ward");
+
+        districtSelect.innerHTML = '<option value="" selected>Vui lòng chọn Quận/Huyện</option>';
+        wardSelect.innerHTML = '<option value="" selected>Vui lòng chọn Phường/Xã</option>';
+
+        if (districts[city]) {
+            Object.keys(districts[city]).forEach(district => {
+                let option = document.createElement("option");
+                option.value = district;
+                option.textContent = district;
+                districtSelect.appendChild(option);
+            });
+        }
+        validateCity();
+    });
+
+    document.getElementById("district").addEventListener("change", function () {
+        let city = document.getElementById("city").value;
+        let district = this.value;
+        let wardSelect = document.getElementById("ward");
+
+        wardSelect.innerHTML = '<option value="" selected>Vui lòng chọn Phường/Xã</option>';
+
+        if (districts[city] && districts[city][district]) {
+            districts[city][district].forEach(ward => {
+                let option = document.createElement("option");
+                option.value = ward;
+                option.textContent = ward;
+                wardSelect.appendChild(option);
+            });
+        }
+        validateDistrict();
+    });
+
+    document.getElementById("ward").addEventListener("change", validateWard);
 });
 
 const districts = {
@@ -260,42 +335,3 @@ const districts = {
         "Biên Hòa": ["Trảng Dài", "Tam Hiệp"]
     }
 };
-
-document.getElementById("city").addEventListener("change", function () {
-    let city = this.value;
-    let districtSelect = document.getElementById("district");
-    let wardSelect = document.getElementById("ward");
-
-    districtSelect.innerHTML = '<option value="" selected>Vui lòng chọn Quận/Huyện</option>';
-    wardSelect.innerHTML = '<option value="" selected>Vui lòng chọn Phường/Xã</option>';
-
-    if (districts[city]) {
-        Object.keys(districts[city]).forEach(district => {
-            let option = document.createElement("option");
-            option.value = district;
-            option.textContent = district;
-            districtSelect.appendChild(option);
-        });
-    }
-    validateCity();
-});
-
-document.getElementById("district").addEventListener("change", function () {
-    let city = document.getElementById("city").value;
-    let district = this.value;
-    let wardSelect = document.getElementById("ward");
-
-    wardSelect.innerHTML = '<option value="" selected>Vui lòng chọn Phường/Xã</option>';
-
-    if (districts[city] && districts[city][district]) {
-        districts[city][district].forEach(ward => {
-            let option = document.createElement("option");
-            option.value = ward;
-            option.textContent = ward;
-            wardSelect.appendChild(option);
-        });
-    }
-    validateDistrict();
-});
-
-document.getElementById("ward").addEventListener("change", validateWard);
