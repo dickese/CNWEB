@@ -139,15 +139,15 @@
 
 .overlay .page h3 {
     color: #fff;
-    font-size: 40px;
-    margin-bottom: 15px;
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .overlay .page p {
     color: #fff;
     font-weight: 600;
-    margin-bottom: 20px;
-    font-size: 17px;
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .btn {
@@ -155,7 +155,7 @@
     outline: 1px solid black;
     color: #fff;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 550;
     background-color: transparent;
     padding: 12px 45px;
@@ -167,7 +167,7 @@
 
 .form h3 {
     color: #222;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .form span {
@@ -185,7 +185,7 @@
     width: 100%;
     height: 100%;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 13px;
     border: none;
     outline: none;
     background-color: transparent;
@@ -204,14 +204,14 @@
     width: 330px;
     height: 48px;
     background-color: #EEEDEF;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 #form_input_register .type input {
     width: 100%;
     height: 100%;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 13px;
     border: none;
     outline: none;
     background-color: transparent;
@@ -226,6 +226,29 @@
 }
 .bkg {
     background-color: #FF4167;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-left: 5px;
+    display: none;
+    font-weight: 500;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+input.error {
+    border: 1px solid #d9534f;
+    background-color: #fff0f0;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.4);
+}
+
+input.error::placeholder {
+    color: #d9534f;
 }
 
 /* Điều chỉnh cho màn hình máy tính nhỏ hơn (max-width: 1200px) */
@@ -254,7 +277,7 @@
 
     #form_input_register .type[style*="display: flex"] input {
         height: 40px;
-        width: 100%; /* Đảm bảo input đầy đủ chiều rộng */
+        width: 100%; 
     }
 
     .form h3 {
@@ -267,7 +290,7 @@
 
     .overlay .page h3 {
         font-size: 2rem;
-        color: #fff; /* Ghi đè style nội tuyến */
+        color: #fff;
     }
 
     .overlay .page p {
